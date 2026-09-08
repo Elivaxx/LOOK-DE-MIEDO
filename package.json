@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "verificar": "node scripts/verificar.mjs"
+    "verificar": "node scripts/verificar.mjs",
+    "probar": "node scripts/probar-guardarrail.mjs",
+    "comprobar": "npm run probar && npm run build && npm run verificar"
   },
   "dependencies": {
     "next": "16.3.2",

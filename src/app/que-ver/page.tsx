@@ -17,16 +17,15 @@ export default function QueVer() {
       </h1>
       <p className="mb-8 max-w-[58ch] text-texto">
         Si al final te quedas en casa, el plan se monta igual. Los canales de Prime
-        Video se prueban gratis, así que puedes tener el catálogo de terror que te
-        falte solo para esa noche.
+        Video se contratan sueltos, así que puedes sumar el catálogo de terror que te
+        falte solo para esa noche y quitarlo después.
       </p>
 
       <div className="rounded border border-linea bg-panel p-7">
         <h2 className="display mb-3 text-2xl">Canales de Prime Video</h2>
         <p className="mb-5 max-w-[58ch] text-texto">
-          Cada canal se contrata por separado y casi todos traen periodo de prueba
-          gratuito. Mira cuáles tienen prueba activa ahora mismo y quédate solo con el
-          que te interese para el 31.
+          Cada canal va por su cuenta y algunos traen periodo de prueba. Mira cuáles lo
+          tienen activo ahora mismo y quédate solo con el que te interese para el 31.
         </p>
         <a
           href={PRIME_VIDEO_CHANNELS}
