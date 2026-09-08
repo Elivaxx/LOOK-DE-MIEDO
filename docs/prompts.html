@@ -176,54 +176,103 @@ Vertical 2:3 composition, wardrobe centered with clear empty space in the middle
 </section>
 
 <section>
-  <span class="step">Pieza 2 · dos personajes, no ocho</span>
-  <h2>Los avatares</h2>
-  <p>Dos avatares cubren toda la web y <strong>son el dúo</strong> de la categoría «en pareja». Ocho se comen la temporada generando imágenes. Los atributos de abajo se copian <strong>palabra por palabra</strong> en cada prompt: son el mecanismo de consistencia, no una descripción bonita.</p>
+  <span class="step">Pieza 2 · cuatro personajes, 2 y 2</span>
+  <h2>El reparto</h2>
+  <p>Dos chicas y dos chicos, de <strong>19 a 23 años, con aspecto español y de Madrid</strong>. El 2+2 no es capricho: cubre los tres tipos de dúo —ellas, mixto y ellos— sin tener que generar a nadie más para la categoría «en pareja», que es la que multiplica el ticket.</p>
+
+  <div class="note">
+    <p><strong>La ropa base es el estado por defecto, y por eso son reutilizables.</strong> Cada personaje se genera una vez con prendas lisas, negras, sin logos ni estampados ni marcas. Esa base es el punto de partida de los 40 looks: encima se le pone lo que toque, y la persona no cambia.</p>
+  </div>
+
+  <p>Los atributos de abajo se copian <strong>palabra por palabra</strong> en cada prompt. No es una descripción bonita: en fotorrealismo es el único mecanismo de consistencia que funciona.</p>
 
   <div class="cards">
     <div class="card">
       <div class="nm">Vera</div>
-      <div class="rl">Avatar A</div>
+      <div class="rl">Chica · 21</div>
       <dl>
-        <dt>Edad</dt><dd>24</dd>
-        <dt>Pelo</dt><dd>negro, liso, largo hasta el pecho, flequillo recto</dd>
-        <dt>Piel</dt><dd>clara</dd>
-        <dt>Rasgos</dt><dd>ojos marrón oscuro grandes, cara ovalada</dd>
+        <dt>Pelo</dt><dd>castaño oscuro, largo y ondulado, con mechas cobrizas</dd>
+        <dt>Piel</dt><dd>clara con subtono oliva</dd>
+        <dt>Rasgos</dt><dd>ojos marrón oscuro, cejas marcadas, nariz recta</dd>
         <dt>Complexión</dt><dd>delgada, 1,68 m</dd>
       </dl>
     </div>
     <div class="card">
       <div class="nm">Nuri</div>
-      <div class="rl">Avatar B</div>
+      <div class="rl">Chica · 23</div>
       <dl>
-        <dt>Edad</dt><dd>26</dd>
-        <dt>Pelo</dt><dd>castaño oscuro, rizado voluminoso, por los hombros</dd>
+        <dt>Pelo</dt><dd>negro, rizado voluminoso, por los hombros</dd>
         <dt>Piel</dt><dd>morena</dd>
-        <dt>Rasgos</dt><dd>ojos avellana, pecas en las mejillas, cejas marcadas</dd>
-        <dt>Complexión</dt><dd>curvy, 1,65 m</dd>
+        <dt>Rasgos</dt><dd>ojos avellana, pecas en las mejillas, cejas gruesas</dd>
+        <dt>Complexión</dt><dd>curvy, 1,63 m</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="nm">Dani</div>
+      <div class="rl">Chico · 22</div>
+      <dl>
+        <dt>Pelo</dt><dd>castaño oscuro, corto y ondulado, con volumen arriba</dd>
+        <dt>Piel</dt><dd>clara con subtono oliva</dd>
+        <dt>Rasgos</dt><dd>ojos verdosos, barba de tres días, mandíbula marcada</dd>
+        <dt>Complexión</dt><dd>atlético delgado, 1,80 m</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="nm">Bruno</div>
+      <div class="rl">Chico · 19</div>
+      <dl>
+        <dt>Pelo</dt><dd>negro, liso, corto con flequillo hacia delante</dd>
+        <dt>Piel</dt><dd>morena</dd>
+        <dt>Rasgos</dt><dd>ojos marrón oscuro, sin barba, cara redondeada</dd>
+        <dt>Complexión</dt><dd>delgado, 1,74 m</dd>
       </dl>
     </div>
   </div>
 
-  <h3>Hoja de personaje — se genera primero</h3>
+  <h3>Las tres hojas de cada personaje</h3>
+  <p>En este orden. La primera fija la cara, la segunda las vistas, la tercera el cuerpo entero. Con las tres, ya no hace falta volver a generar a la persona: solo vestirla.</p>
+
   <div class="block">
-    <div class="bar"><span class="t">Character sheet · Vera</span><button class="copy" data-t="sheet">Copiar</button></div>
-    <pre id="sheet">Character reference sheet. The same young woman photographed four times in a row against a plain dark background: front view, three-quarter view, side view, back view. Standing in a neutral pose, arms relaxed at her sides, feet together, neutral expression.
+    <div class="bar"><span class="t">Hoja 1 · expresiones — 8 planos de cara</span><button class="copy" data-t="sheet1">Copiar</button></div>
+    <pre id="sheet1">Character expression sheet. A 4x2 grid of eight head-and-shoulders photographs of the same person against a plain white background, evenly lit, identical framing and camera distance in all eight.
 
-Fixed appearance, identical in all four frames: <span class="v">24 years old, straight black hair falling to the chest with a blunt straight fringe, fair skin, large dark brown eyes, oval face, slim build, 1.68 m</span>. She wears a plain fitted black long-sleeve top and plain black leggings, barefoot, no accessories, no jewellery.
+The same person in every frame, do not change: <span class="v">[PEGA AQUÍ EL BLOQUE DE ATRIBUTOS]</span>, from Madrid, Spanish features.
 
-Consistent lighting and camera distance across all four frames.
+Expressions across the eight frames: neutral, soft smile, open laugh, serious, thoughtful, playful wink, looking away, slight frown.
+
+Wearing the base outfit: a plain black fitted long-sleeve top, no pattern, no logo, no print, no visible branding, no jewellery.
 
 [PEGA AQUÍ LA COLETA FOTORREALISTA]</pre>
   </div>
-  <p>Para <strong>Nuri</strong>, sustituye lo marcado en rosa por: <code>26 years old, dark brown voluminous curly hair to the shoulders, brown skin, hazel eyes, freckles across the cheeks, strong eyebrows, curvy build, 1.65 m</code>.</p>
 
-  <h3>Cada look, a partir de la hoja</h3>
   <div class="block">
-    <div class="bar"><span class="t">Avatar vestido · un look</span><button class="copy" data-t="look">Copiar</button></div>
-    <pre id="look">Full-body photograph of a young woman standing facing the camera, relaxed confident pose, one hand at her side, chin slightly raised.
+    <div class="bar"><span class="t">Hoja 2 · vistas — cabeza y hombros</span><button class="copy" data-t="sheet2">Copiar</button></div>
+    <pre id="sheet2">Character reference sheet. Four head-and-shoulders photographs of the same person side by side against a plain warm grey background: front view, three-quarter view, full profile, back of the head. Neutral expression, identical lighting and camera distance in all four.
 
-Fixed appearance, do not change: <span class="v">24 years old, straight black hair falling to the chest with a blunt straight fringe, fair skin, large dark brown eyes, oval face, slim build, 1.68 m</span>.
+The same person in every frame, do not change: <span class="v">[PEGA AQUÍ EL BLOQUE DE ATRIBUTOS]</span>, from Madrid, Spanish features.
+
+Wearing the base outfit: a plain black fitted long-sleeve top, no pattern, no logo, no print, no visible branding.
+
+[PEGA AQUÍ LA COLETA FOTORREALISTA]</pre>
+  </div>
+
+  <div class="block">
+    <div class="bar"><span class="t">Hoja 3 · cuerpo entero — la base reutilizable</span><button class="copy" data-t="sheet3">Copiar</button></div>
+    <pre id="sheet3">Full-body character reference sheet. Four full-length photographs of the same person side by side against a plain warm grey background: front, three-quarter, full profile, back. Standing straight, arms relaxed at the sides, neutral expression. Identical lighting, camera height and distance in all four, full figure visible from head to feet with headroom.
+
+The same person in every frame, do not change: <span class="v">[PEGA AQUÍ EL BLOQUE DE ATRIBUTOS]</span>, from Madrid, Spanish features.
+
+Wearing the base outfit, simple and plain: <span class="v">a plain black fitted long-sleeve top and plain black straight trousers, plain black flat shoes</span>. No pattern, no logo, no print, no visible branding, no jewellery, no accessories.
+
+[PEGA AQUÍ LA COLETA FOTORREALISTA]</pre>
+  </div>
+
+  <h3>Y ya con eso, cada look</h3>
+  <div class="block">
+    <div class="bar"><span class="t">Vestir a un personaje · un look</span><button class="copy" data-t="look">Copiar</button></div>
+    <pre id="look">Full-body photograph of the same person, standing facing the camera, relaxed confident pose, one hand at her side.
+
+The person, do not change: <span class="v">[PEGA AQUÍ EL BLOQUE DE ATRIBUTOS]</span>, from Madrid, Spanish features.
 
 She is wearing: <span class="v">a black midi dress with long sleeves and a white pointed Peter Pan collar, black and white striped tights, chunky black lace-up boots</span>.
 
@@ -231,12 +280,16 @@ The garments are generic archetypes with no visible branding, not any specific p
 
 [PEGA AQUÍ LA COLETA FOTORREALISTA]
 
-Vertical 2:3, full figure with headroom, plain dark background so she can be composited over a separate scene.</pre>
+Vertical 2:3, full figure with headroom, plain dark background so the figure can be composited over a separate scene.</pre>
   </div>
 
   <div class="note warn">
-    <p><strong>Lo que va en el hueco de la ropa sale de la ficha de siete casillas</strong>, la que rellenas mirando el producto en Amazon: pieza · color · largo · manga · cuello · tejido · detalle. Nunca el nombre ni el modelo del producto.</p>
-    <p>Ese texto describe <strong>un tipo de prenda</strong>, no el artículo que enlazas. Es la línea que separa lo permitido de la afirmación engañosa del Requisito 2(b).</p>
+    <p><strong>Lo que va en el hueco de la ropa sale de la ficha de siete casillas</strong>, la que rellenas mirando el producto en Amazon: pieza · color · largo · manga · cuello · tejido · detalle. <strong>Nunca el nombre ni el modelo del producto.</strong></p>
+    <p>Ese texto describe <strong>un tipo de prenda</strong>, no el artículo que enlazas. Es la línea que separa lo permitido de la afirmación engañosa del Requisito 2(b), y con fotorrealismo está más cerca que nunca.</p>
+  </div>
+
+  <div class="note">
+    <p><strong>Coste real, para que no te pille:</strong> cuatro personajes por tres hojas son doce tandas de generar y descartar antes de tener el primer look. Es más que los dos que yo propuse, pero el 2+2 se amortiza en cuanto empieces con los dúos — que es la categoría que duplica el ticket.</p>
   </div>
 </section>
 
