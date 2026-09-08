@@ -129,7 +129,29 @@ footer{
   </div>
 
   <div class="note">
-    <p><strong>Por qué plano y de línea gruesa y no realista:</strong> es el mismo lenguaje que el símbolo de la percha, así que el logo y las piezas se ven de la misma familia. Y es lo único que se puede repetir 40 veces sin que se note el cambio de modelo.</p>
+    <p><strong>Para qué sirve la plana:</strong> las piezas sueltas y los iconos. Es el mismo lenguaje que el símbolo de la percha, así que logo y piezas se ven de la misma familia.</p>
+  </div>
+
+  <h3>La coleta fotorrealista — personas y escenas</h3>
+  <p>Es la que se pega en todo lo que lleve una persona o un ambiente: avatares, fondos, pines. Lenguaje de fotografía de moda, no de ilustración.</p>
+
+  <div class="block">
+    <div class="bar"><span class="t">Coleta fotorrealista — va en avatares y escenas</span><button class="copy" data-t="cola2">Copiar</button></div>
+    <pre id="cola2">Photorealistic editorial fashion photography. Shot on an 85mm lens at f/2.0, shallow depth of field. Soft key light from the upper left with a subtle lilac gel, deep falloff into shadow, gentle rim light separating the subject from the background. Dark charcoal background, almost black. Natural skin texture with visible pores and fine hair strands, authentic fabric weave and drape, realistic folds and weight. Colour grade: cool shadows, muted lilac cast through the scene, one small hot-pink accent somewhere in frame. Moody, cinematic, high detail, no beauty-filter smoothing.
+
+Fictional character, not a real or identifiable person. No text, no letters, no logos, no watermarks, no brand marks on any garment.</pre>
+  </div>
+
+  <div class="note warn">
+    <p><strong>Lo que cambia al pasar a fotorrealista, y no es opcional:</strong></p>
+    <p><strong>1 · No puede parecerse a nadie real.</strong> Si el modelo te devuelve una cara que recuerda a una actriz concreta, descártala. Con dibujo esto no pasaba; con fotorrealismo es el riesgo principal, y ya no es Amazon — es derecho a la propia imagen <em>(LO 1/1982)</em>.</p>
+    <p><strong>2 · Etiqueta de IA siempre</strong>, en toda plataforma que la pida.</p>
+    <p><strong>3 · Ni una frase que sugiera que existe o que ha probado algo.</strong> Con un dibujo, «me encanta» era discutible. Con una foto realista es un testimonio falso y punto.</p>
+    <p><strong>4 · La prenda es un arquetipo, nunca el artículo que enlazas.</strong> En el prompt va «vestido negro midi de manga larga con cuello blanco», jamás «el vestido de la marca X». El nombre del producto vive en el texto de debajo.</p>
+  </div>
+
+  <div class="note">
+    <p><strong>La consistencia es más difícil aquí que con dibujo</strong>, así que el bloque de atributos fijos pasa de ayudar a ser obligatorio: se pega <em>literal</em> en cada prompt. Y añade edad y color de ojos, que en fotorrealismo derivan mucho. Genera en tandas de 8 y quédate con una.</p>
   </div>
 </section>
 
@@ -163,20 +185,22 @@ Vertical 2:3 composition, wardrobe centered with clear empty space in the middle
       <div class="nm">Vera</div>
       <div class="rl">Avatar A</div>
       <dl>
+        <dt>Edad</dt><dd>24</dd>
         <dt>Pelo</dt><dd>negro, liso, largo hasta el pecho, flequillo recto</dd>
         <dt>Piel</dt><dd>clara</dd>
-        <dt>Rasgos</dt><dd>ojos oscuros grandes, cara ovalada</dd>
-        <dt>Complexión</dt><dd>delgada, estatura media</dd>
+        <dt>Rasgos</dt><dd>ojos marrón oscuro grandes, cara ovalada</dd>
+        <dt>Complexión</dt><dd>delgada, 1,68 m</dd>
       </dl>
     </div>
     <div class="card">
       <div class="nm">Nuri</div>
       <div class="rl">Avatar B</div>
       <dl>
+        <dt>Edad</dt><dd>26</dd>
         <dt>Pelo</dt><dd>castaño oscuro, rizado voluminoso, por los hombros</dd>
         <dt>Piel</dt><dd>morena</dd>
-        <dt>Rasgos</dt><dd>pecas en las mejillas, cejas marcadas</dd>
-        <dt>Complexión</dt><dd>curvy, estatura media</dd>
+        <dt>Rasgos</dt><dd>ojos avellana, pecas en las mejillas, cejas marcadas</dd>
+        <dt>Complexión</dt><dd>curvy, 1,65 m</dd>
       </dl>
     </div>
   </div>
@@ -184,30 +208,30 @@ Vertical 2:3 composition, wardrobe centered with clear empty space in the middle
   <h3>Hoja de personaje — se genera primero</h3>
   <div class="block">
     <div class="bar"><span class="t">Character sheet · Vera</span><button class="copy" data-t="sheet">Copiar</button></div>
-    <pre id="sheet">Character reference sheet. The same illustrated young woman shown four times in a row against a plain background: front view, three-quarter view, side view, back view. Standing in a neutral pose, arms relaxed at her sides, feet together.
+    <pre id="sheet">Character reference sheet. The same young woman photographed four times in a row against a plain dark background: front view, three-quarter view, side view, back view. Standing in a neutral pose, arms relaxed at her sides, feet together, neutral expression.
 
-Fixed appearance, identical in all four views: <span class="v">straight black hair falling to the chest with a blunt straight fringe, fair skin, large dark eyes, oval face, slim build, average height</span>. She wears a plain fitted black long-sleeve top and plain black leggings, no accessories, no shoes detail.
+Fixed appearance, identical in all four frames: <span class="v">24 years old, straight black hair falling to the chest with a blunt straight fringe, fair skin, large dark brown eyes, oval face, slim build, 1.68 m</span>. She wears a plain fitted black long-sleeve top and plain black leggings, barefoot, no accessories, no jewellery.
 
-Stylised illustrated character, clearly a drawing and not a photograph.
+Consistent lighting and camera distance across all four frames.
 
-[PEGA AQUÍ LA COLETA DE ESTILO]</pre>
+[PEGA AQUÍ LA COLETA FOTORREALISTA]</pre>
   </div>
-  <p>Para <strong>Nuri</strong>, sustituye lo marcado en rosa por: <code>dark brown voluminous curly hair to the shoulders, brown skin, freckles across the cheeks, strong eyebrows, curvy build, average height</code>.</p>
+  <p>Para <strong>Nuri</strong>, sustituye lo marcado en rosa por: <code>26 years old, dark brown voluminous curly hair to the shoulders, brown skin, hazel eyes, freckles across the cheeks, strong eyebrows, curvy build, 1.65 m</code>.</p>
 
   <h3>Cada look, a partir de la hoja</h3>
   <div class="block">
     <div class="bar"><span class="t">Avatar vestido · un look</span><button class="copy" data-t="look">Copiar</button></div>
-    <pre id="look">Full-body illustration of a young woman standing facing forward, relaxed confident pose, one hand at her side.
+    <pre id="look">Full-body photograph of a young woman standing facing the camera, relaxed confident pose, one hand at her side, chin slightly raised.
 
-Fixed appearance, do not change: <span class="v">straight black hair falling to the chest with a blunt straight fringe, fair skin, large dark eyes, oval face, slim build, average height</span>.
+Fixed appearance, do not change: <span class="v">24 years old, straight black hair falling to the chest with a blunt straight fringe, fair skin, large dark brown eyes, oval face, slim build, 1.68 m</span>.
 
 She is wearing: <span class="v">a black midi dress with long sleeves and a white pointed Peter Pan collar, black and white striped tights, chunky black lace-up boots</span>.
 
-The garments are generic archetypes, not any specific branded product.
+The garments are generic archetypes with no visible branding, not any specific product.
 
-[PEGA AQUÍ LA COLETA DE ESTILO]
+[PEGA AQUÍ LA COLETA FOTORREALISTA]
 
-Vertical 2:3, figure centered, plain background so it can be placed over a separate scene.</pre>
+Vertical 2:3, full figure with headroom, plain dark background so she can be composited over a separate scene.</pre>
   </div>
 
   <div class="note warn">
@@ -347,7 +371,7 @@ Vertical 9:16. Keep the middle band clear for a figure and the lower third clear
   <ul>
     <li><strong>Nunca metas una imagen ajena al generador.</strong> Ni la foto de Amazon para clavar la prenda, ni un fotograma, ni un pin. El resultado sería obra derivada de esa imagen: estilizar no lava el origen.</li>
     <li><strong>Arquetipo, nunca el modelo concreto.</strong> «Vestido negro midi con cuello blanco» sí. «El vestido de la marca X» no.</li>
-    <li><strong>El avatar no puede ser un personaje de película.</strong> Gótica con trenzas, sí. Merlina con su cuello y sus trenzas exactas, no: es diseño del estudio.</li>
+    <li><strong>El avatar no puede ser un personaje de película ni parecerse a nadie real.</strong> Gótica con trenzas, sí. Merlina con su cuello y sus trenzas exactas, no. Y si la cara que sale te recuerda a una actriz concreta, descártala: con fotorrealismo eso deja de ser copyright y pasa a ser derecho a la propia imagen.</li>
     <li><strong>El avatar no dice nunca que ha probado nada.</strong> Ni «me encanta» ni «lo llevé». Sí: «esta es mi selección», «así lo montaría yo».</li>
     <li><strong>Etiqueta de IA</strong> donde la plataforma la pida. Instagram y TikTok la detectan solas si el archivo lleva marca C2PA.</li>
   </ul>
