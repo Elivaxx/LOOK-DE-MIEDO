@@ -37,3 +37,47 @@ a:focus-visible, button:focus-visible {
   outline: 2px solid var(--lila);
   outline-offset: 2px;
 }
+
+/* ── Apariciones ──────────────────────────────────────────────────────
+ * Suaves y cortas. Todo arranca desde un estado VISIBLE si el visitante
+ * pide menos movimiento: una web que se queda en blanco porque nadie hizo
+ * scroll es una web rota, no una web sobria.
+ */
+@keyframes aparece {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes despliega {
+  from { opacity: 0; transform: translateY(-6px) scaleY(.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+.aparece   { animation: aparece .55s cubic-bezier(.22,.8,.3,1) both; }
+.aparece-1 { animation-delay: 90ms; }
+.despliega {
+  animation: despliega .38s cubic-bezier(.22,.8,.3,1) both;
+  transform-origin: top;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aparece, .despliega { animation: none; opacity: 1; transform: none; }
+  * { transition-duration: .01ms !important; }
+}
+
+/* El armario: un solo fondo para toda la web, servido una vez y cacheado.
+ * Los modelos van encima en PNG recortado, así que pesan una fracción. */
+.armario {
+  position: relative;
+  isolation: isolate;
+}
+.armario::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(185,140,255,.22), transparent 60%),
+    linear-gradient(180deg, transparent 55%, var(--noche) 95%),
+    var(--fondo-armario, none) center/cover no-repeat,
+    var(--noche);
+}
