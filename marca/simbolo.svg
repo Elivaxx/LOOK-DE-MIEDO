@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512">
+  <title>Look de Miedo — símbolo</title>
+  <g fill="none" stroke="#B98CFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 45 L50 29 C50 21 58.5 19.5 58.5 13.5 C58.5 8 51.5 5.2 45.8 8.6"/>
+    <path d="M50 46 L21.5 67 L78.5 67 Z"/>
+  </g>
+  <circle cx="50" cy="59" r="4" fill="#FF3D68"/>
+</svg>

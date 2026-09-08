@@ -389,6 +389,37 @@ Vertical 9:16. Keep the middle band clear for a figure and the lower third clear
 </section>
 
 <section>
+  <span class="step">El logo · ojo con esto</span>
+  <h2>El símbolo ya existe, en SVG</h2>
+  <p>La percha cuyo gancho es un interrogante <strong>ya está dibujada y en producción</strong>: en el header, en el 404 y en el marcador de producto. Los ficheros están en <code>marca/</code> del repo: <code>simbolo.svg</code>, <code>avatar-redes.svg</code> (1000×1000, fondo negro) y <code>favicon.svg</code>.</p>
+
+  <div class="note warn">
+    <p><strong>El logo NO se genera con IA.</strong> Los modelos no reproducen una geometría exacta: te devolverán una percha parecida pero distinta cada vez, y un logo que cambia entre la web y las redes deja de ser un logo. El SVG manda siempre.</p>
+    <p>Para cualquier sitio que pida PNG, exporta el SVG al tamaño que haga falta. Escala sin perder nitidez y pesa una fracción.</p>
+  </div>
+
+  <h3>Lo que sí tiene sentido generar: una versión de gala</h3>
+  <p>Para portadas, la cabecera de un pin o un post de presentación, donde interesa que el símbolo tenga material y luz — como el dorado de Navidad Ya. <strong>No sustituye al SVG</strong>: convive con él.</p>
+
+  <div class="block">
+    <div class="bar"><span class="t">Símbolo con material · 1:1</span><button class="copy" data-t="logo">Copiar</button></div>
+    <pre id="logo">A single minimal logo mark, centered on a deep near-black background.
+
+The mark: a clothes hanger seen straight from the front, drawn as one continuous stroke of even thickness with rounded ends. Its hook is shaped like a question mark — the neck rises from the apex, then curves up and over to the left in a full round bowl, ending in an open tip. Below the apex, the hanger's plain triangular body with a flat base. A single small dot sits centered inside the triangle, like the dot of the question mark.
+
+Nothing else in frame: no clothes on the hanger, no rail, no hands, no background objects, no shadow of other shapes.
+
+Rendered in brushed metallic lilac with a soft vertical sheen, lit from the upper left, sitting slightly above the surface with a soft contact shadow. The dot inside the triangle is the only element in a warm hot pink.
+
+Square 1:1, the mark occupying the middle half of the frame with generous even margin. No text, no letters, no wordmark, no watermark.</pre>
+  </div>
+
+  <div class="note">
+    <p><strong>Compáralo con <code>marca/simbolo.svg</code> antes de usarlo.</strong> Si la percha que devuelve no tiene el gancho claramente en forma de interrogante, o el punto no está dentro del triángulo, descártala: es otro logo.</p>
+  </div>
+</section>
+
+<section>
   <span class="step">Para lo que no esté en esta lista</span>
   <h2>El prompt maestro</h2>
   <p>Cualquier cosa nueva se escribe rellenando estos cinco huecos, en este orden. El orden importa: los modelos pesan más lo que va primero.</p>
