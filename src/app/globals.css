@@ -6,17 +6,7 @@
   Contrastes calculados sobre --noche: hueso 17,16:1 · lila 7,73:1 · rosa 5,73:1
   · niebla 3,66:1 (solo texto grande).
 */
-:root {
-  --noche: #0d0a11;
-  --panel: #171320;
-  --panel2: #1f1a2b;
-  --hueso: #f4efe6;
-  --texto: #cfc7d8;
-  --lila: #b98cff;
-  --rosa: #ff3d68;
-  --niebla: #6e6780;
-  --linea: #2c2438;
-}
+@import "../../assets/design-tokens.css";
 
 @theme inline {
   --color-noche: var(--noche);

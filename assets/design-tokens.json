@@ -1,0 +1,75 @@
+{
+  "$description": "Look de Miedo — tokens de marca. Fuente: docs/brand-guidelines.md. Espejo exacto de assets/design-tokens.css.",
+  "brand": "Look de Miedo",
+  "color": {
+    "noche": {
+      "$value": "#0D0A11",
+      "$type": "color",
+      "$description": "Fondo de todo"
+    },
+    "panel": {
+      "$value": "#171320",
+      "$type": "color",
+      "$description": "Tarjetas y bloques"
+    },
+    "panel2": {
+      "$value": "#1F1A2B",
+      "$type": "color",
+      "$description": "Segundo nivel"
+    },
+    "linea": {
+      "$value": "#2C2438",
+      "$type": "color",
+      "$description": "Bordes"
+    },
+    "hueso": {
+      "$value": "#F4EFE6",
+      "$type": "color",
+      "$description": "Texto · 17,16:1 AA"
+    },
+    "texto": {
+      "$value": "#CFC7D8",
+      "$type": "color",
+      "$description": "Cuerpo sobre panel"
+    },
+    "niebla": {
+      "$value": "#6E6780",
+      "$type": "color",
+      "$description": "Secundario · 3,66:1 SOLO texto grande"
+    },
+    "lila": {
+      "$value": "#B98CFF",
+      "$type": "color",
+      "$description": "Acento de marca · 7,73:1 AA"
+    },
+    "rosa": {
+      "$value": "#FF3D68",
+      "$type": "color",
+      "$description": "SOLO CTA · 5,73:1 AA"
+    },
+    "ok": {
+      "$value": "#7BE0A8",
+      "$type": "color"
+    },
+    "warn": {
+      "$value": "#FFC46B",
+      "$type": "color"
+    },
+    "stop": {
+      "$value": "#FF3D68",
+      "$type": "color"
+    }
+  },
+  "font": {
+    "display": {
+      "$value": "Bodoni Moda, Didot, 'Times New Roman', serif",
+      "$type": "fontFamily",
+      "$description": "Titulares. NUNCA por debajo de 20px: es didone y los trazos finos se rompen"
+    },
+    "ui": {
+      "$value": "Bricolage Grotesque, 'Helvetica Neue', Arial, sans-serif",
+      "$type": "fontFamily",
+      "$description": "Interfaz y todo el texto corrido"
+    }
+  }
+}
