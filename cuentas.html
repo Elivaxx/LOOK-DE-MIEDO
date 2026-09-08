@@ -1,0 +1,263 @@
+<title>Cuentas de Look de Miedo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap">
+
+<style>
+:root{
+  --noche:#0D0A11; --panel:#171320; --panel2:#1F1A2B;
+  --hueso:#F4EFE6; --texto:#CFC7D8;
+  --lila:#B98CFF; --rosa:#FF3D68; --niebla:#6E6780; --linea:#2C2438; --ok:#7BE0A8;
+  --display:"Bodoni Moda",Didot,"Times New Roman",serif;
+  --ui:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--noche);color:var(--hueso);font-family:var(--ui);
+  font-size:15px;line-height:1.65;margin:0;padding:clamp(16px,4vw,44px);-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto}
+header{border-bottom:1px solid var(--linea);padding-bottom:24px;margin-bottom:30px}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(32px,6vw,56px);
+  line-height:1;margin:0 0 12px;text-wrap:balance}
+h1 em{font-style:italic;color:var(--lila)}
+.sub{color:var(--texto);max-width:62ch;margin:0}
+h2{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.1;
+  margin:0 0 6px;text-wrap:balance}
+h3{font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;
+  margin:22px 0 8px;color:var(--lila)}
+section{margin-bottom:38px}
+p{margin:0 0 13px;max-width:64ch;color:var(--texto)}
+p:last-child{margin-bottom:0}
+strong{color:var(--hueso);font-weight:700}
+code{font-family:var(--mono);font-size:.88em;color:var(--lila);word-break:break-all}
+a{color:var(--lila)}
+
+.step{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--niebla);display:block;margin-bottom:10px}
+
+.warn{border-left:3px solid var(--rosa);background:var(--panel);padding:16px 18px;
+  border-radius:0 4px 4px 0;margin:18px 0}
+.warn p{margin:0;font-size:13.5px;max-width:none}
+.warn p+p{margin-top:9px}
+.note{border-left:3px solid var(--lila);background:var(--panel2);padding:14px 16px;
+  border-radius:0 4px 4px 0;margin:16px 0}
+.note p{margin:0;font-size:13.5px;max-width:none}
+
+.acct{border:1px solid var(--linea);border-radius:4px;background:var(--panel);
+  padding:20px;margin-bottom:14px}
+.acct .hd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.acct .n{font-family:var(--display);font-size:25px;line-height:1}
+.acct .ord{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--noche);background:var(--lila);padding:3px 8px;border-radius:2px;font-weight:700}
+.acct .why{font-size:12.5px;color:var(--niebla);margin:0 0 14px;max-width:none}
+.acct a.go{display:inline-block;font-family:var(--mono);font-size:11.5px;
+  border:1px solid var(--linea);border-radius:3px;padding:8px 12px;text-decoration:none;
+  color:var(--lila);margin-bottom:14px;word-break:break-all}
+.acct a.go:hover{border-color:var(--lila)}
+dl.f{margin:0;font-size:13px;line-height:1.7}
+dl.f dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--niebla);margin-top:11px}
+dl.f dt:first-child{margin-top:0}
+dl.f dd{margin:0;color:var(--hueso)}
+
+.copybox{border:1px solid var(--linea);border-radius:4px;overflow:hidden;margin:10px 0 4px;background:var(--panel2)}
+.copybox .bar{display:flex;align-items:center;gap:10px;padding:8px 11px;border-bottom:1px solid var(--linea)}
+.copybox .t{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--niebla);margin-right:auto}
+.copybox .cnt{font-family:var(--mono);font-size:9.5px;color:var(--ok)}
+button.copy{font-family:var(--ui);font-weight:800;font-size:10px;letter-spacing:.07em;
+  text-transform:uppercase;background:transparent;color:var(--lila);border:1px solid var(--linea);
+  border-radius:3px;padding:5px 10px;cursor:pointer}
+button.copy:hover{border-color:var(--lila)}
+button.copy:focus-visible{outline:2px solid var(--lila);outline-offset:2px}
+button.copy.ok{color:var(--noche);background:var(--lila);border-color:var(--lila)}
+.copybox pre{margin:0;padding:13px;font-family:var(--mono);font-size:12px;line-height:1.7;
+  color:var(--hueso);white-space:pre-wrap;word-break:break-word}
+
+ul{margin:0 0 13px;padding-left:20px;color:var(--texto);max-width:64ch}
+li{margin-bottom:6px}
+li::marker{color:var(--lila)}
+ul.no li::marker{color:var(--rosa)}
+.tablescroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--niebla);font-weight:400;
+  padding:0 12px 9px 0;border-bottom:1px solid var(--linea)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--linea);vertical-align:top;line-height:1.5;color:var(--texto)}
+tr:last-child td{border-bottom:none}
+td.k{color:var(--hueso);font-weight:700;white-space:nowrap}
+td.m{font-family:var(--mono);font-size:11.5px;color:var(--lila)}
+
+footer{border-top:1px solid var(--linea);margin-top:42px;padding-top:20px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--niebla)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <h1>Cuentas de <em>Look de Miedo</em></h1>
+  <p class="sub">Dónde se abre cada una, en qué orden, y el texto exacto que va en cada campo. Todo comprobado contra el límite de caracteres de cada red.</p>
+</header>
+
+<div class="warn">
+  <p><strong>Las cuentas las abres tú.</strong> No puedo registrar perfiles ni introducir contraseñas en tu nombre, aunque tenga el navegador abierto. Lo que sigue está para copiar y pegar.</p>
+  <p><strong>Y van con el correo de marca, nunca con el personal.</strong> Si mañana entra alguien más al proyecto, o si pierdes el acceso, un perfil colgado de tu Gmail privado es un problema que no se arregla.</p>
+</div>
+
+<section>
+  <span class="step">La regla que más se incumple</span>
+  <h2>«Amazon» sí en la bio, nunca en el nombre</h2>
+  <p>Son dos cosas distintas y es fácil confundirlas:</p>
+  <ul>
+    <li><strong>En el nombre de usuario, el nombre a mostrar, el dominio y el tracking ID: prohibida</strong> la palabra «amazon», «kindle» y cualquier variante o errata. Es motivo de cierre de cuenta <em>(Requisito 1(g))</em>.</li>
+    <li><strong>En la bio: obligatoria</strong>, dentro de la frase literal de divulgación, que sí contiene la palabra Amazon.</li>
+  </ul>
+  <p><code>@lookdemiedo</code> cumple. Cualquier cosa tipo <code>@lookdemiedo_amazon</code> cierra la cuenta.</p>
+</section>
+
+<section>
+  <span class="step">El orden</span>
+  <h2>Correo primero, luego Pinterest</h2>
+
+  <div class="acct">
+    <div class="hd"><span class="ord">1º</span><span class="n">Correo de marca</span></div>
+    <p class="why">Todo lo demás cuelga de aquí. Si lo dejas para después, hay que rehacer los perfiles.</p>
+    <a class="go" href="https://accounts.google.com/signup" target="_blank" rel="noopener">accounts.google.com/signup ↗</a>
+    <dl class="f">
+      <dt>Dirección sugerida</dt><dd><code>lookdemiedo@gmail.com</code> — si está cogida, prueba <code>lookdemiedooficial@gmail.com</code></dd>
+      <dt>Nombre</dt><dd>Look de Miedo</dd>
+      <dt>Ojo</dt><dd>Guarda la contraseña en tu gestor. Yo no la veo ni la quiero ver.</dd>
+    </dl>
+  </div>
+
+  <div class="acct">
+    <div class="hd"><span class="ord">2º</span><span class="n">Pinterest</span></div>
+    <p class="why">El canal principal, y no por costumbre: es un buscador, no necesita seguidores, el pin sigue trayendo visitas meses después, y funciona con avatares y tipografía — lo único que podemos producir legalmente sin fotos de producto. Cuenta de empresa, no personal: da estadísticas y pines enriquecidos.</p>
+    <a class="go" href="https://www.pinterest.com/business/create/" target="_blank" rel="noopener">pinterest.com/business/create ↗</a>
+    <dl class="f">
+      <dt>Usuario</dt><dd><code>lookdemiedo</code> — sin verificar si está libre; se confirma al registrarlo</dd>
+      <dt>Nombre a mostrar</dt><dd>Look de Miedo</dd>
+    </dl>
+    <div class="copybox">
+      <div class="bar"><span class="t">Bio · límite 160</span><span class="cnt">126 car.</span><button class="copy" data-t="b-pin">Copiar</button></div>
+      <pre id="b-pin">El look de Halloween, pieza a pieza. Qué ver esa noche y de qué vestirte. Como Afiliado de Amazon, gano por compras elegibles.</pre>
+    </div>
+  </div>
+
+  <div class="acct">
+    <div class="hd"><span class="ord">3º</span><span class="n">Instagram</span></div>
+    <p class="why">Para el carrusel «Bro, ¿qué me pongo?». Cuenta profesional, para tener estadísticas y el enlace en la bio.</p>
+    <a class="go" href="https://www.instagram.com/accounts/emailsignup/" target="_blank" rel="noopener">instagram.com/accounts/emailsignup ↗</a>
+    <dl class="f">
+      <dt>Usuario</dt><dd><code>lookdemiedo</code> — comprobado libre el 07/09/2026</dd>
+      <dt>Nombre a mostrar</dt><dd>Look de Miedo</dd>
+    </dl>
+    <div class="copybox">
+      <div class="bar"><span class="t">Bio · límite 150</span><span class="cnt">109 car.</span><button class="copy" data-t="b-ig">Copiar</button></div>
+      <pre id="b-ig">Bro, ¿qué me pongo? · Looks de Halloween, pieza a pieza. Como Afiliado de Amazon, gano por compras elegibles.</pre>
+    </div>
+  </div>
+
+  <div class="acct">
+    <div class="hd"><span class="ord">4º</span><span class="n">TikTok</span></div>
+    <p class="why">El último de los tres. Su bio es la más corta de todas —80 caracteres— y la divulgación sola ya ocupa 52, así que aquí no cabe nada de marketing.</p>
+    <a class="go" href="https://www.tiktok.com/signup" target="_blank" rel="noopener">tiktok.com/signup ↗</a>
+    <dl class="f">
+      <dt>Usuario</dt><dd><code>lookdemiedo</code> — comprobado libre el 07/09/2026</dd>
+      <dt>Nombre a mostrar</dt><dd>Look de Miedo</dd>
+    </dl>
+    <div class="copybox">
+      <div class="bar"><span class="t">Bio · límite 80</span><span class="cnt">72 car.</span><button class="copy" data-t="b-tt">Copiar</button></div>
+      <pre id="b-tt">Looks de Halloween. Como Afiliado de Amazon, gano por compras elegibles.</pre>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="step">Justo después, y sin saltárselo</span>
+  <h2>Declarar los canales y crear los tracking IDs</h2>
+  <p><strong>Usar un canal que no esté declarado en Central de Afiliados es motivo de baja.</strong> Y los tracking IDs se crean <strong>antes</strong> de publicar nada: la atribución no se reconstruye hacia atrás, así que si publicas primero nunca sabrás qué canal funcionó.</p>
+  <a class="go" href="https://afiliados.amazon.es/" target="_blank" rel="noopener">afiliados.amazon.es ↗</a>
+  <h3>Un tracking ID por canal</h3>
+  <div class="tablescroll">
+    <table>
+      <thead><tr><th>Canal</th><th>Tracking ID propuesto</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Web</td><td class="m">ldm-web-21</td></tr>
+        <tr><td class="k">Pinterest</td><td class="m">ldm-pin-21</td></tr>
+        <tr><td class="k">Instagram</td><td class="m">ldm-ig-21</td></tr>
+        <tr><td class="k">TikTok</td><td class="m">ldm-tt-21</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <p>Ninguno lleva «amazon» ni variantes, así que cumplen el Requisito 1(g). El tag de la cuenta sigue siendo <code>ivanleguizamo-21</code>; estos son adicionales y se crean desde Central de Afiliados.</p>
+  </div>
+  <div class="warn">
+    <p><strong>Mientras estás ahí, mira las dos cosas que bloquean el plan entero:</strong></p>
+    <p>1 · Si las <strong>recompensas de Prime Video Channels cuentan para las 3 ventas</strong> que aprueban la cuenta. Está sin verificar y es el camino más corto al objetivo.<br>
+    2 · El <strong>desglose real de comisión de un disfraz</strong>: si va al 6 % como ropa o al 3 % como «todas las demás». Cambia qué categoría priorizamos.</p>
+  </div>
+</section>
+
+<section>
+  <span class="step">El copy que va siempre</span>
+  <h2>Cuatro cosas, en cada sitio</h2>
+  <div class="copybox">
+    <div class="bar"><span class="t">Divulgación · literal, no se redacta otra</span><span class="cnt">52 car.</span><button class="copy" data-t="c-div">Copiar</button></div>
+    <pre id="c-div">Como Afiliado de Amazon, gano por compras elegibles.</pre>
+  </div>
+  <div class="tablescroll">
+    <table>
+      <thead><tr><th>Qué</th><th>Dónde</th><th>Por qué</th></tr></thead>
+      <tbody>
+        <tr><td class="k">La divulgación literal</td><td>En la bio de cada red, y en la web visible y cerca del enlace, más su página legal</td><td>El Acuerdo Operativo la exige con ese texto exacto. En Navidad Ya nos inventamos una y estuvo meses publicada</td></tr>
+        <tr><td class="k"><code>#ad</code></td><td>En el caption de cada pieza social, sin excepción</td><td>Es una divulgación distinta de la de la bio. Hacen falta las dos</td></tr>
+        <tr><td class="k">Etiqueta de IA</td><td>En cada imagen o vídeo generado, donde la plataforma la pida</td><td>Instagram y TikTok la detectan solas si el archivo lleva marca C2PA</td></tr>
+        <tr><td class="k"><code>rel="nofollow"</code></td><td>En todo enlace de afiliado de la web</td><td>Lo aplica <code>enlace.ts</code> solo, pero se verifica en cada despliegue</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <span class="step">Antes de pulsar publicar</span>
+  <h2>Lo que nunca va en una pieza</h2>
+  <ul class="no">
+    <li>Precios, disponibilidad o «desde X €» sobre un producto concreto — <em>Requisito 2(b)</em></li>
+    <li>Valoraciones, estrellas o recuentos de reseñas — <em>Requisito 6(t)</em></li>
+    <li>Imágenes de Amazon, de Pinterest, de Instagram o fotogramas de películas modernas</li>
+    <li>«El más vendido», «lo que se lleva este año», «el que todas piden» — afirmaciones que no podemos probar</li>
+    <li>Un avatar diciendo que ha probado el producto</li>
+    <li>Enlaces que lleven directos a Amazon desde una búsqueda o un anuncio: el tráfico aterriza en la web</li>
+  </ul>
+  <div class="note">
+    <p><strong>Y la que cierra la cuenta de verdad:</strong> nunca comprar por tus propios enlaces ni pedírselo a amigos o familia. Es incumplimiento material del <em>Requisito 6(u)</em>. Las 3 ventas tienen que venir de tráfico real.</p>
+  </div>
+</section>
+
+<footer>Look de Miedo · límites de caracteres verificados · 8 septiembre 2026</footer>
+
+</div>
+
+<script>
+document.querySelectorAll("button.copy").forEach(function(b){
+  b.addEventListener("click",function(){
+    var el=document.getElementById(b.dataset.t); if(!el) return;
+    var txt=el.innerText, done=function(){
+      var old=b.textContent; b.textContent="Copiado"; b.classList.add("ok");
+      setTimeout(function(){b.textContent=old;b.classList.remove("ok")},1600);
+    };
+    try{ navigator.clipboard.writeText(txt).then(done,function(){fb(txt,done)}) }
+    catch(e){ fb(txt,done) }
+  });
+});
+function fb(txt,done){
+  try{
+    var ta=document.createElement("textarea"); ta.value=txt; ta.setAttribute("readonly","");
+    ta.style.position="fixed"; ta.style.top="-1000px";
+    document.body.appendChild(ta); ta.select(); document.execCommand("copy");
+    document.body.removeChild(ta); done();
+  }catch(e){}
+}
+</script>

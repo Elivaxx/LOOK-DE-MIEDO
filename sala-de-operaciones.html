@@ -1,0 +1,735 @@
+<title>Sala de Operaciones · Look de Miedo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap">
+
+<style>
+:root{
+  --noche:#0D0A11; --panel:#171320; --panel2:#1F1A2B;
+  --hueso:#F4EFE6; --texto:#CFC7D8;
+  --lila:#B98CFF; --rosa:#FF3D68; --niebla:#6E6780; --linea:#2C2438;
+  --ok:#7BE0A8; --warn:#FFC46B;
+  --display:"Bodoni Moda",Didot,"Times New Roman",serif;
+  --ui:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+:root[data-theme="light"]{
+  --noche:#F4EFE6; --panel:#FFFFFF; --panel2:#EFE8DC;
+  --hueso:#0D0A11; --texto:#3B3348;
+  --lila:#6B32C9; --rosa:#C8003C; --niebla:#6E6780; --linea:#DCD3C6;
+  --ok:#1B7A4B; --warn:#8A5A00;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--noche); color:var(--hueso);
+  font-family:var(--ui); font-size:15px; line-height:1.6;
+  margin:0; padding:clamp(14px,3.2vw,34px); -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto}
+button{font-family:inherit}
+.mono{font-family:var(--mono)}
+
+/* cabecera */
+.hd{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between;
+  border-bottom:1px solid var(--linea);padding-bottom:18px;margin-bottom:18px}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,5.2vw,50px);
+  line-height:.98;margin:0;text-wrap:balance}
+h1 em{font-style:italic;color:var(--lila)}
+.clock{text-align:right;font-family:var(--mono);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--niebla);line-height:1.9}
+.clock b{display:block;font-family:var(--display);font-size:38px;letter-spacing:0;
+  text-transform:none;color:var(--rosa);line-height:1}
+#theme{background:none;border:1px solid var(--linea);color:var(--niebla);border-radius:3px;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;cursor:pointer;
+  font-weight:700;margin-top:8px}
+#theme:hover{border-color:var(--lila);color:var(--lila)}
+
+/* bloqueo */
+.block{border:1px solid var(--rosa);border-radius:4px;
+  background:var(--panel);padding:16px 18px;margin-bottom:18px}
+.block h2{font-family:var(--ui);font-size:11px;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--rosa);margin:0 0 10px}
+.block ul{margin:0;padding-left:18px;color:var(--texto);font-size:13.5px}
+.block li{margin-bottom:5px}
+.block li::marker{color:var(--rosa)}
+.block li b{color:var(--hueso)}
+
+/* cifras */
+#figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:18px}
+.fig{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;
+  background:var(--panel);border:1px solid var(--linea);border-left-width:3px;border-radius:4px;
+  padding:14px 15px;cursor:pointer;color:inherit}
+.fig:hover{border-color:var(--lila)}
+.fig:focus-visible{outline:2px solid var(--lila);outline-offset:2px}
+.fig .n{font-family:var(--display);font-size:34px;line-height:1}
+.fig .c{font-size:12px;font-weight:800;letter-spacing:.02em}
+.fig .s{font-size:11px;color:var(--niebla);line-height:1.4}
+.fig .go{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--lila);margin-top:7px}
+.fig.ok{border-left-color:var(--ok)} .fig.warn{border-left-color:var(--warn)}
+.fig.stop{border-left-color:var(--rosa)} .fig.void{border-left-color:var(--niebla)}
+
+/* bitácora */
+.bit{background:var(--panel);border:1px solid var(--linea);border-radius:4px;
+  padding:16px 18px;margin-bottom:18px}
+.bit .top{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+.bit h2{font-family:var(--display);font-weight:400;font-size:22px;margin:0;margin-right:auto}
+.bit .n{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--niebla)}
+#bit-list{list-style:none;margin:0 0 12px;padding:0;font-size:13px;max-height:190px;overflow-y:auto}
+#bit-list li{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--linea)}
+#bit-list li:last-child{border-bottom:none}
+#bit-list .when{font-family:var(--mono);font-size:10.5px;color:var(--niebla);flex:none;padding-top:2px;width:38px}
+#bit-list .what{color:var(--texto);line-height:1.5}
+#bit-list .what b{color:var(--lila);font-weight:700;margin-right:5px}
+.bitempty{color:var(--niebla);font-style:italic}
+.bitrow{display:flex;gap:8px}
+#bit-q{flex:1;background:var(--noche);border:1px solid var(--linea);border-radius:3px;
+  color:var(--hueso);font-family:inherit;font-size:13px;padding:9px 11px;min-width:0}
+#bit-q:focus{outline:none;border-color:var(--lila)}
+#bit-go{background:var(--lila);color:var(--noche);border:none;border-radius:3px;font-weight:800;
+  font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:9px 15px;cursor:pointer}
+#bit-go:disabled{opacity:.4;cursor:default}
+#bit-hint{font-size:11px;color:var(--niebla);margin-top:7px;display:block}
+
+/* árbol */
+.tree{margin-bottom:18px;position:relative}
+#net{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
+#net path{fill:none;stroke-width:1.5}
+#net path.e-ok{stroke:var(--ok);opacity:.75}
+#net path.e-stop{stroke:var(--rosa);opacity:.9;stroke-dasharray:5 4}
+#net path.e-warn{stroke:var(--warn);opacity:.7;stroke-dasharray:5 4}
+#net path.e-void{stroke:var(--niebla);opacity:.35;stroke-dasharray:2 5}
+#net circle{stroke:none}
+.tlabel{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--niebla);margin:0 0 10px;position:relative;z-index:1}
+.row{display:grid;gap:10px;margin-bottom:10px;position:relative;z-index:1}
+#row-chats{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.row-ag{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center;position:relative;z-index:1;
+  margin-top:4px;font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--niebla)}
+.legend i{display:inline-block;width:16px;height:0;border-top-width:2px;border-top-style:solid;
+  margin-right:6px;vertical-align:middle}
+.legend .l-ok i{border-color:var(--ok)}
+.legend .l-stop i{border-color:var(--rosa);border-top-style:dashed}
+.legend .l-void i{border-color:var(--niebla);border-top-style:dotted}
+.node{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;
+  background:var(--panel);border:1px solid var(--linea);border-radius:4px;padding:13px 14px;
+  cursor:pointer;color:inherit;width:100%;position:relative;z-index:1}
+.node:hover{border-color:var(--lila)}
+.node:focus-visible{outline:2px solid var(--lila);outline-offset:2px}
+.node[aria-pressed="true"]{border-color:var(--lila);background:var(--panel2)}
+.node.boss .nm{color:var(--lila)}
+.node .nm{font-weight:800;font-size:13.5px}
+.node .rl{font-size:11.5px;color:var(--niebla);line-height:1.4}
+.node .st{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;margin-top:5px}
+.st.ok{color:var(--ok)} .st.warn{color:var(--warn)} .st.stop{color:var(--rosa)} .st.void{color:var(--niebla)}
+
+/* panel lateral */
+#scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);border:none;z-index:40}
+#sheet{position:fixed;top:0;right:0;bottom:0;width:min(520px,100%);z-index:41;
+  background:var(--panel);border-left:1px solid var(--linea);display:flex;flex-direction:column}
+.sh-hd{display:flex;align-items:flex-start;gap:12px;padding:18px 20px;border-bottom:1px solid var(--linea)}
+#s-kind{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--lila);display:block}
+#s-nm{font-family:var(--display);font-size:26px;line-height:1.05;margin-top:3px;display:block}
+#s-x{margin-left:auto;background:none;border:1px solid var(--linea);border-radius:3px;color:var(--niebla);
+  font-size:16px;line-height:1;padding:6px 10px;cursor:pointer;flex:none}
+#s-x:hover{border-color:var(--lila);color:var(--lila)}
+#s-body{padding:18px 20px 28px;overflow-y:auto;flex:1}
+#s-body section{margin-bottom:22px}
+#s-body h4{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--lila);margin:0 0 8px}
+#s-body p{margin:0 0 10px;font-size:13.5px;color:var(--texto);line-height:1.6}
+.qlist{list-style:none;margin:0;padding:0;font-size:13px}
+.qlist li{display:flex;gap:9px;padding:6px 0;border-bottom:1px solid var(--linea);color:var(--texto)}
+.qlist li:last-child{border-bottom:none}
+.dot{width:7px;height:7px;border-radius:50%;flex:none;margin-top:6px}
+.dot.ok{background:var(--ok)} .dot.warn{background:var(--warn)}
+.dot.stop{background:var(--rosa)} .dot.void{background:var(--niebla)}
+.acts{display:flex;flex-direction:column;gap:7px}
+.act{text-align:left;background:var(--panel2);border:1px solid var(--linea);border-radius:3px;
+  padding:10px 12px;font-size:12.5px;color:var(--hueso);cursor:pointer;line-height:1.4}
+.act:hover{border-color:var(--lila)}
+.act .who{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--niebla);margin-bottom:3px}
+.askbox{border:1px solid var(--linea);border-radius:3px;padding:11px;background:var(--panel2)}
+#q{width:100%;min-height:74px;background:var(--noche);border:1px solid var(--linea);border-radius:3px;
+  color:var(--hueso);font-family:inherit;font-size:13px;padding:9px 10px;resize:vertical}
+#q:focus{outline:none;border-color:var(--lila)}
+.askrow{display:flex;align-items:center;gap:10px;margin-top:9px}
+.send{background:var(--lila);color:var(--noche);border:none;border-radius:3px;font-weight:800;
+  font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:9px 15px;cursor:pointer}
+.send:disabled{opacity:.4;cursor:default}
+.hint{font-size:11px;color:var(--niebla);line-height:1.35}
+.out{margin-top:11px;padding:12px;background:var(--noche);border:1px solid var(--linea);
+  border-radius:3px;font-size:13px;color:var(--texto);white-space:pre-wrap;line-height:1.6}
+.out.err{border-color:var(--rosa);color:var(--rosa)}
+.savebtn{margin-top:8px;background:none;border:1px solid var(--linea);border-radius:3px;
+  color:var(--lila);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:6px 11px;cursor:pointer}
+.savebtn:hover{border-color:var(--lila)}
+.piece{border:1px solid var(--linea);border-radius:3px;margin-bottom:6px;background:var(--panel2)}
+.piece summary{padding:9px 11px;cursor:pointer;font-size:12.5px;font-weight:700;
+  display:flex;align-items:center;gap:8px}
+.piece .tag{margin-left:auto;font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;
+  text-transform:uppercase;padding:2px 6px;border-radius:2px;border:1px solid var(--linea);
+  color:var(--niebla);flex:none}
+.piece .tag.stop{color:var(--rosa);border-color:var(--rosa)}
+.piece .tag.ok{color:var(--ok);border-color:var(--ok)}
+.piece .body{padding:0 11px 11px;font-size:12px;color:var(--texto);white-space:pre-wrap;line-height:1.6}
+
+/* pie */
+.tools{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:18px}
+#ics{background:none;border:1px solid var(--linea);border-radius:3px;color:var(--lila);
+  font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:9px 14px;cursor:pointer}
+#ics:hover{border-color:var(--lila)}
+#foot{border-top:1px solid var(--linea);padding-top:16px;font-size:11.5px;
+  color:var(--niebla);line-height:1.65;max-width:78ch}
+#foot strong{color:var(--hueso)}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="hd">
+    <h1>Look de Miedo<br><em>sala de operaciones</em></h1>
+    <div class="clock">
+      <b id="dias">—</b>
+      días de compra<span id="fecha"></span>
+      <button id="theme" type="button">Tema</button>
+    </div>
+  </header>
+
+  <div class="block">
+    <h2>Lo que bloquea todo</h2>
+    <ul>
+      <li><b>El dominio no está comprado.</b> <span class="mono">lookdemiedo.com</span> + <span class="mono">.es</span> estaban libres el 07/09. Bloquea la verificación de AdSense — es el error 9 de Navidad Ya, repetido.</li>
+      <li><b>La cuenta de Afiliados no está aprobada.</b> Sin PA API no hay fotos, ni precios, ni valoraciones. De ahí sale la forma entera de la web.</li>
+      <li><b>Sin confirmar si las recompensas de Prime Video cuentan</b> para las 3 ventas de aprobación. Sostiene el plan entero y solo se puede mirar en Central de Afiliados.</li>
+    </ul>
+  </div>
+
+  <div id="figs"></div>
+
+  <section class="bit">
+    <div class="top">
+      <h2>Bitácora</h2>
+      <span class="n" id="bit-n"></span>
+    </div>
+    <ul id="bit-list"><li><span class="what bitempty">Cargando…</span></li></ul>
+    <div class="bitrow">
+      <input id="bit-q" type="text" placeholder="Apunta lo que acabas de hacer o decidir" autocomplete="off">
+      <button id="bit-go" type="button" disabled>Apuntar</button>
+    </div>
+    <span id="bit-hint">Lo que apuntes aquí lo ven todos los puestos en su siguiente respuesta.</span>
+  </section>
+
+  <div class="tree">
+    <svg id="net" aria-hidden="true"></svg>
+    <p class="tlabel">Equipo · las líneas son entregas entre puestos</p>
+    <div class="row" id="row-boss"></div>
+    <div class="row" id="row-chats"></div>
+    <p class="tlabel">Agentes</p>
+    <div class="row row-ag" id="row-ag1"></div>
+    <div class="row row-ag" id="row-ag2"></div>
+    <div class="legend">
+      <span class="l-ok"><i></i>Entregado</span>
+      <span class="l-stop"><i></i>Atascado aquí</span>
+      <span class="l-void"><i></i>Sin empezar</span>
+    </div>
+  </div>
+
+  <div class="tools">
+    <button id="ics" type="button">Descargar los próximos pasos (.ics)</button>
+  </div>
+
+  <p id="foot"></p>
+</div>
+
+<button id="scrim" type="button" hidden aria-label="Cerrar"></button>
+<aside id="sheet" hidden>
+  <div class="sh-hd">
+    <div><span id="s-kind"></span><span id="s-nm"></span></div>
+    <button id="s-x" type="button" aria-label="Cerrar">✕</button>
+  </div>
+  <div id="s-body"></div>
+</aside>
+
+<script>
+(function(){
+"use strict";
+function $(s){return document.querySelector(s)}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+
+/* ── reloj ──────────────────────────────────────────────────────────── */
+var FIN = new Date("2026-10-29T23:59:59");
+(function(){
+  var d = Math.ceil((FIN - new Date())/864e5);
+  $("#dias").textContent = d > 0 ? d : 0;
+  $("#fecha").textContent = " · hasta el 29 oct";
+})();
+
+/* ── contexto que viaja en cada consulta ────────────────────────────── */
+var CTX_BASE =
+"Contexto del negocio. Look de Miedo es una guía editorial de looks de Halloween para España, "+
+"monetizada con enlaces de afiliado de Amazon (tag ivanleguizamo-21) y con recompensas de Prime "+
+"Video Channels. Hablamos a chicas de 16-25 con plan el 31 de octubre y sin disfraz. El formato "+
+"es 'el look de X, pieza a pieza': 4-6 productos concretos con marca y modelo que forman un look.\n\n"+
+"ESTADO REAL: la Fase 0 está cerrada (nombre, paleta, tipografía, voz, categorías). No hay repo, "+
+"ni web publicada, ni catálogo, ni cuentas de redes, ni dominio comprado. La cuenta de Afiliados "+
+"NO está aprobada y no hay PA API.\n\n"+
+"OBJETIVO DECLARADO: conseguir las 3 ventas que aprueban la cuenta, no facturar la temporada. "+
+"La API desbloquea fotos y precios en todas las webs del workspace.\n\n"+
+"PROHIBICIONES, con su cláusula:\n"+
+"- Precios sin PA API: Requisito 2(b). Valoraciones y reseñas sin PA API: Requisito 6(t).\n"+
+"- Imágenes de Amazon, por cualquier vía: Licencia 2(h) y 6(b). Tampoco de Pinterest, de "+
+"Instagram, ni fotogramas de películas modernas.\n"+
+"- Recorrer Amazon con automatización: Licencia 1 y Términos de Agente §4.\n"+
+"- Comprar por enlaces propios o pedírselo a conocidos: Requisito 6(u), incumplimiento material.\n"+
+"- Afirmaciones que no se puedan probar ('el más vendido', 'lo que se lleva este año'): Requisito 2(b).\n"+
+"- Divulgación literal obligatoria: 'Como Afiliado de Amazon, gano por compras elegibles.'\n"+
+"- Lentillas de fantasía fuera del catálogo: producto sanitario regulado en España.\n\n"+
+"COMISIONES ES: 6% ropa/calzado/bolsos/relojes · 5% hogar/cocina/joyería · 4% belleza · "+
+"3% el resto · 1% alimentación · 0% vino y tarjetas regalo. El tramo del disfraz está SIN "+
+"VERIFICAR (3% o 6% según cómo lo etiquete Amazon). Prime Video Channels: 3€ fijos por prueba gratis.\n\n"+
+"TONO: tuteo juvenil, sin jerga regional cerrada. Sí: look, montar, clavarlo, pieza, 'sin liarte'. "+
+"No: el mejor, el más buscado, increíble, espectacular.\n\n"+
+"HONESTIDAD: marca cada dato como verificado / criterio / sin verificar. Si no hay fuente, di "+
+"'sin dato verificado'. Nunca rellenes con un número plausible.";
+
+var BIT = [];
+function ctx(){
+  var b = BIT.length
+    ? "\n\nBITÁCORA (lo ya hecho o decidido — no lo repitas como pendiente):\n" +
+      BIT.slice(0,15).map(function(x){
+        return "- ["+(x.cuando||"")+"] "+(x.quien?x.quien+": ":"")+(x.que||"")
+      }).join("\n")
+    : "\n\nBITÁCORA: vacía todavía.";
+  return CTX_BASE + b;
+}
+
+/* ── los puestos ────────────────────────────────────────────────────── */
+var T = {
+ coordinacion:{
+   boss:true, kind:"Chat", nm:"Coordinación", rl:"Decide, escribe el BRIEFING y reparte",
+   st:"Fase 0 cerrada", sc:"ok",
+   hace:"Cierra las decisiones que los demás dan por hechas: nicho, nombre, identidad, voz y categorías. Escribe el BRIEFING y los kickoffs. No construye ni redacta.",
+   rol:"Eres el chat de coordinación de Look de Miedo. Decides y repartes; no escribes código ni copy. Tu responsabilidad principal: que lo que pides sea legal — un brief que pide datos prohibidos convierte a los ejecutores en infractores por obediencia, que es lo que pasó en Navidad Ya. Cita la cláusula en cada norma que invoques.",
+   cola:[["ok","BRIEFING escrito y cerrado"],["ok","Marca cerrada: paleta, dos tipografías, símbolo"],["ok","Los dos kickoffs preparados"],["stop","El dominio sigue sin comprar"]],
+   acts:[
+     ["¿Qué hago hoy?","Con el estado real del proyecto y los días que quedan, dime las 3 cosas que debería hacer HOY, por orden, y qué desbloquea cada una. Nada de listas largas: tres."],
+     ["¿Voy tarde?","Dado el estado actual y los días que quedan hasta el 29 de octubre, dime honestamente si llego a la temporada o no, y qué habría que recortar del alcance para llegar. Si no llego, dilo con esas palabras."]
+   ]
+ },
+ construccion:{
+   kind:"Chat", nm:"Construcción", rl:"Repo, rutas, despliegue",
+   st:"Andamiaje listo · sin desplegar", sc:"warn",
+   hace:"Levanta el repo, el despliegue y las rutas. Copia enlace.ts el día 1, antes que ningún producto. Confirma dónde vive cada tipo de contenido ANTES de que Marketing escriba.",
+   rol:"Eres el chat de construcción de Look de Miedo: Next.js App Router + Tailwind en Vercel, datos en JSON en el repo. La tubería antes que el contenido: repo y deploy vacío pero desplegando, luego enlace.ts con el tag dentro de la capa de datos, luego carpetas por dominio. No hay fotos de producto y no las va a haber esta temporada.",
+   cola:[["ok","Repo creado y primer commit hecho"],["ok","enlace.ts con el tag dentro de la capa de datos"],["ok","10 rutas compilan y pasan las aserciones"],["ok","Legales escritos: privacidad, afiliados y contacto"],["warn","Sin desplegar todavía: falta decisión de Vercel"],["void","robots en noindex hasta que haya contenido"]],
+   acts:[
+     ["Dame el orden exacto del día 1","Enumera, en orden y sin saltarte nada, lo que hay que hacer el primer día de construcción, desde crear el repo hasta tener algo desplegado y verificado en producción. Di en cada paso cómo se comprueba que está bien."],
+     ["Revisa las rutas propuestas","Las rutas propuestas son: / · /look/[slug] · /categoria/[slug] · /guias/[slug] · /que-ver · /legal/*. Dime si falta alguna, si sobra alguna, y qué decisión de SEO estoy tomando sin darme cuenta al elegir /look/ como unidad de contenido."]
+   ]
+ },
+ marketing:{
+   kind:"Chat", nm:"Marketing", rl:"Contenido, redes, SEO",
+   st:"Rutas listas · falta catálogo", sc:"warn",
+   hace:"Escribe los looks, las guías y las piezas de redes. No empieza hasta que Construcción confirme dónde se publica cada tipo de contenido.",
+   rol:"Eres el chat de marketing de Look de Miedo. Canal principal Pinterest, no Instagram. Formato estrella: el carrusel 'Bro, ¿qué me pongo?' con el avatar ante un armario abierto. No escribes nada hasta que exista la ruta donde publicarlo.",
+   cola:[["ok","Rutas confirmadas: /look/[slug] es la unidad de contenido"],["stop","Bloqueado por el catálogo: 0 productos con ASIN"],["void","0 looks escritos"],["stop","Cuentas de redes sin crear — bios ya preparadas"]],
+   acts:[
+     ["Los 10 primeros looks","Propón los 10 primeros looks a publicar, ordenados por facilidad de conversión. Para cada uno: el nombre del look, el personaje o arquetipo del que viene, y las 4-6 piezas que lo forman descritas como tipo de prenda. Marca cuáles funcionan también como look en pareja."],
+     ["El calendario hasta el 31","Con los días que quedan, dame el calendario de publicación: qué se publica, qué día y en qué canal. Pinterest tiene cola larga, así que dime también qué hay que publicar YA para que llegue a tiempo."]
+   ]
+ },
+ investigador:{
+   kind:"Agente", nm:"investigador-nicho", rl:"¿Merece la pena?",
+   st:"Veredicto entregado", sc:"ok",
+   hace:"Cruza comisión por ticket, mide la ventana y mira quién rankea de verdad. Ya dictaminó: como negocio de temporada el nicho no da los números; como máquina de conseguir 3 ventas, sí.",
+   rol:"Eres el investigador de nicho. Cruzas comisión × ticket × ventana, nunca volumen de búsqueda a secas. Marcas cada cifra como verificado / criterio / sin verificar y citas la URL. Tu valor está en poder decir que no.",
+   cola:[["ok","Veredicto de Halloween entregado el 07/09"],["stop","Tramo de comisión del disfraz sin verificar"],["warn","Sin volúmenes de búsqueda: Semrush sin unidades de API"]],
+   acts:[
+     ["¿Qué falta por verificar?","Lista todo lo que en el BRIEFING está marcado como 'sin verificar' o 'criterio', ordenado por cuánto daño hace si resulta ser falso. Para cada uno dime dónde se comprueba exactamente."],
+     ["Prepara la temporada siguiente","Halloween 2026 es siembra. Dime qué habría que dejar montado ahora para que Halloween 2027 arranque con ventaja, y qué otra temporada del calendario español encajaría con esta misma web entre noviembre y octubre."]
+   ]
+ },
+ catalogador:{
+   kind:"Agente", nm:"catalogador", rl:"Fichas de producto",
+   st:"0 productos · bloquea a todos", sc:"stop",
+   hace:"Valida que cada ficha tenga nombre real, marca, modelo y specs de hechos. Nunca extrae datos de Amazon: los aporta una persona.",
+   rol:"Eres el catalogador de Look de Miedo. Validas fichas de producto que aporta una persona. NUNCA inventas un nombre junto a un ASIN real: si falta el dato, lo dices. Un producto sin marca y modelo no entra al catálogo — en Navidad Ya entraron 34 así y siguen bloqueando la conversión meses después.",
+   cola:[["void","Catálogo vacío: 0 productos"],["ok","Ficha de 7 casillas definida para describir prendas"],["stop","Lentillas de fantasía: excluidas del catálogo"]],
+   acts:[
+     ["¿Cómo te paso las fichas?","Recuérdame en cinco líneas el formato exacto que debe tener cada ficha de producto y qué vas a rechazar, para no perder el tiempo rellenando mal."],
+     ["Prepárame la hoja de trabajo","Dame la plantilla de la hoja que voy a rellenar mirando Amazon: qué columnas, en qué orden, y qué instrucción va en cada una para que no me equivoque. La máquina prepara la hoja; la persona la rellena."]
+   ]
+ },
+ redactor:{
+   kind:"Agente", nm:"redactor-guias", rl:"Guías y comparativas",
+   st:"0 guías", sc:"void",
+   hace:"Escribe los looks y las guías con la voz ya fijada. No publica: entrega el borrador para que lo revise el auditor.",
+   rol:"Eres el redactor de Look de Miedo. Voz de tuteo juvenil, sin jerga regional cerrada. Cero precios, cero valoraciones, cero superlativos sin dueño: 'el que yo pondría primero' en vez de 'el más vendido'. No vendes, recomiendas. Nunca copias la prosa de los bullets de Amazon.",
+   cola:[["warn","Bloqueado: sin ruta donde publicar"],["ok","Voz fijada con ejemplo antes/después"],["stop","Prohibido presentar personajes como 'novedad 2026': no hay estreno este año"]],
+   acts:[
+     ["Escribe el primer look","Escribe el primer look completo con la voz del proyecto: titular, entradilla de tres frases, y las 4-6 piezas descritas como tipo de prenda con un motivo de una línea para cada una. Sin precios, sin valoraciones, sin superlativos."],
+     ["Revisa mi texto","Te voy a pegar un texto. Dime qué frases son afirmaciones que no podemos probar, y reescribe cada una cambiando quién hace la afirmación en vez de quitarle fuerza."]
+   ]
+ },
+ social:{
+   kind:"Agente", nm:"social-repurpose", rl:"Piezas por red",
+   st:"0 piezas · 0 cuentas", sc:"stop",
+   hace:"Convierte un look publicado en carrusel, pin y guion de vídeo, con el copy completo y el prompt de imagen listo.",
+   rol:"Eres el especialista de redes de Look de Miedo. Pinterest primero, siempre: es un buscador, no necesita seguidores, el pin dura meses y funciona con avatares y tipografía, que es lo único producible legalmente. El título del pin es SEO, no eslogan. #ad en cada pieza y la divulgación literal en la bio.",
+   cola:[["stop","Ninguna cuenta creada"],["ok","Formato del carrusel definido: 'Bro, ¿qué me pongo?'"],["ok","Prompts de avatares y fondo maestro escritos"],["void","Correo de marca sin crear"]],
+   acts:[
+     ["Cómo monto Pinterest","Dime paso a paso cómo configurar la cuenta de Pinterest para Look de Miedo: nombre de usuario, nombre a mostrar, bio con la divulgación obligatoria literal, tipo de cuenta y foto de perfil. Recuerda que la palabra amazon no puede aparecer en el usuario."],
+     ["El primer carrusel","Escríbeme el carrusel completo de 7 slides 'Bro, ¿qué me pongo?': el texto exacto de cada slide, el caption con #ad, y qué imagen va en cada una."]
+   ]
+ },
+ auditor:{
+   kind:"Agente", nm:"auditor-afiliados", rl:"Puerta de salida",
+   st:"Nada que revisar aún", sc:"void",
+   hace:"Revisa cada pieza contra el acuerdo antes de publicarla y devuelve los incumplimientos con su cláusula, o el visto bueno. Quien escribe no aprueba.",
+   rol:"Eres el auditor de afiliados. Revisas contra el acuerdo vinculante de Amazon y devuelves incumplimientos citando la cláusula exacta, o el visto bueno. Ante conflicto manda el acuerdo, no una FAQ amable. La autorrevisión no detectó ni una sola de las infracciones graves de Navidad Ya: por eso existes como puerta independiente.",
+   cola:[["void","Sin piezas pendientes: no hay nada escrito todavía"],["ok","Prohibiciones documentadas en el BRIEFING con su cláusula"]],
+   acts:[
+     ["Audítame esta pieza","Te voy a pegar una pieza. Revísala contra el acuerdo: precios, valoraciones, superlativos indemostrables, imágenes, falta de #ad o de divulgación, y enlaces sin tag. Dame los incumplimientos con su cláusula, o el visto bueno."],
+     ["¿Qué se nos suele colar?","Con los errores documentados de Navidad Ya, dime los cinco incumplimientos que más probablemente se nos van a colar en esta web y qué frase concreta debo buscar para detectar cada uno."]
+   ]
+ },
+ revisor:{
+   kind:"Agente", nm:"revisor-web", rl:"Comprobar en vivo",
+   st:"Verificador escrito", sc:"warn",
+   hace:"Comprueba en producción que lo publicado funciona: rutas, enlaces con tag, nofollow, divulgación visible. No da por bueno el código.",
+   rol:"Eres el revisor web. Compruebas contra producción con curl y aserciones sobre el HTML, nunca contra capturas del panel del navegador: en Navidad Ya eso dio dos diagnósticos falsos. Mides el antes y el después con el mismo comando.",
+   cola:[["ok","scripts/verificar.mjs escrito: 10 rutas, 0 problemas en local"],["warn","Sin producción contra la que correrlo todavía"],["ok","Dos falsos positivos del comprobador corregidos"]],
+   acts:[
+     ["Prepárame el comando de verificación","Escríbeme el comando de curl con aserciones que debo pasar tras cada despliegue: que las rutas respondan 200, que todo enlace a Amazon lleve el tag, que lleve rel=nofollow, y que la divulgación literal esté presente."]
+   ]
+ }
+};
+
+var FIGS = [
+ {id:"fase0", n:"6", c:"Documentos cerrados", s:"BRIEFING, marca, prompts, cuentas y 2 kickoffs", cls:"ok"},
+ {id:"rutas", n:"10", c:"Rutas construidas", s:"Compilan y pasan las aserciones. Sin desplegar", cls:"warn"},
+ {id:"catalogo", n:"0", c:"Productos en catálogo", s:"El cuello de botella de todo lo demás", cls:"stop"},
+ {id:"redes", n:"0", c:"Cuentas de redes", s:"Ninguna creada. Pinterest primero", cls:"void"}
+];
+
+/* ── render ─────────────────────────────────────────────────────────── */
+var NODES={};
+function nodeEl(k){
+  var d=T[k], b=document.createElement("button");
+  b.className="node"+(d.boss?" boss":""); b.type="button";
+  b.setAttribute("aria-pressed","false");
+  b.innerHTML='<span class="nm">'+esc(d.nm)+'</span><span class="rl">'+esc(d.rl)+
+    '</span><span class="st '+(d.sc||"")+'">'+esc(d.st)+'</span>';
+  b.addEventListener("click",function(){openNode(k,b)});
+  NODES[k]=b;
+  return b;
+}
+$("#row-boss").appendChild(nodeEl("coordinacion"));
+["construccion","marketing"].forEach(function(k){$("#row-chats").appendChild(nodeEl(k))});
+["investigador","catalogador","redactor"].forEach(function(k){$("#row-ag1").appendChild(nodeEl(k))});
+["social","auditor","revisor"].forEach(function(k){$("#row-ag2").appendChild(nodeEl(k))});
+
+/* ── las conexiones: qué entrega cada puesto a cuál ─────────────────── */
+/* El estado de cada línea sale del estado del puesto que entrega, así que
+   cambiar un estado en T redibuja el grafo solo. */
+var EDGES = [
+ ["investigador","coordinacion","el veredicto del nicho"],
+ ["coordinacion","construccion","el BRIEFING y las rutas"],
+ ["coordinacion","marketing","la voz, la persona y las categorías"],
+ ["construccion","marketing","las rutas donde publicar"],
+ ["catalogador","redactor","fichas con marca y modelo"],
+ ["redactor","social","el look ya publicado"],
+ ["redactor","auditor","el borrador a revisar"],
+ ["social","auditor","la pieza a revisar"],
+ ["construccion","revisor","el despliegue a comprobar"]
+];
+
+function drawNet(){
+  var svg=$("#net"), tree=$(".tree");
+  if(!svg||!tree) return;
+  var box=tree.getBoundingClientRect();
+  if(!box.width){ return }
+  svg.setAttribute("viewBox","0 0 "+box.width+" "+box.height);
+  var parts=[];
+  function pos(k){
+    var el=NODES[k]; if(!el) return null;
+    var r=el.getBoundingClientRect();
+    return {l:r.left-box.left, r:r.right-box.left, t:r.top-box.top, b:r.bottom-box.top,
+            cx:r.left-box.left+r.width/2, cy:r.top-box.top+r.height/2};
+  }
+  EDGES.forEach(function(e){
+    var a=pos(e[0]), b=pos(e[1]);
+    if(!a||!b) return;
+    var cls="e-"+((T[e[0]]&&T[e[0]].sc)||"void");
+    var d;
+    if(Math.abs(a.cy-b.cy) < 12){
+      /* mismo nivel: se rodea por debajo */
+      var dip=Math.max(a.b,b.b)+22;
+      d="M"+a.cx+","+a.b+" C"+a.cx+","+dip+" "+b.cx+","+dip+" "+b.cx+","+b.b;
+    } else if(a.cy < b.cy){
+      d="M"+a.cx+","+a.b+" C"+a.cx+","+((a.b+b.t)/2)+" "+b.cx+","+((a.b+b.t)/2)+" "+b.cx+","+b.t;
+    } else {
+      d="M"+a.cx+","+a.t+" C"+a.cx+","+((a.t+b.b)/2)+" "+b.cx+","+((a.t+b.b)/2)+" "+b.cx+","+b.b;
+    }
+    parts.push('<path class="'+cls+'" d="'+d+'"><title>'+esc(T[e[0]].nm)+" → "+
+      esc(T[e[1]].nm)+": "+esc(e[2])+'</title></path>');
+    var end = (Math.abs(a.cy-b.cy)<12) ? {x:b.cx,y:b.b} : (a.cy<b.cy ? {x:b.cx,y:b.t} : {x:b.cx,y:b.b});
+    parts.push('<circle cx="'+end.x+'" cy="'+end.y+'" r="2.5" fill="currentColor" class="'+cls+'" opacity=".9"/>');
+  });
+  svg.innerHTML=parts.join("");
+  /* el color del punto lo hereda de la clase de la línea */
+  svg.querySelectorAll("circle").forEach(function(c){
+    var m={"e-ok":"var(--ok)","e-stop":"var(--rosa)","e-warn":"var(--warn)","e-void":"var(--niebla)"};
+    c.setAttribute("fill", m[c.getAttribute("class")]||"var(--niebla)");
+  });
+}
+if(window.ResizeObserver){
+  try{ new ResizeObserver(function(){drawNet()}).observe($(".tree")); }catch(e){}
+}
+window.addEventListener("resize",drawNet);
+if(document.fonts && document.fonts.ready){ document.fonts.ready.then(drawNet).catch(function(){}) }
+drawNet();
+setTimeout(drawNet,300);
+
+FIGS.forEach(function(f){
+  var b=document.createElement("button");
+  b.className="fig "+f.cls; b.type="button";
+  b.innerHTML='<span class="n">'+esc(f.n)+'</span><span class="c">'+esc(f.c)+
+    '</span><span class="s">'+esc(f.s)+'</span><span class="go">Ver qué son</span>';
+  b.addEventListener("click",function(){openFig(f.id,b)});
+  $("#figs").appendChild(b);
+});
+
+/* ── capacidades ────────────────────────────────────────────────────── */
+var sampleFn=null, dl=null, dbNs=null, last=null;
+claude.use("sample").then(function(s){sampleFn=s; refreshAsk()},function(){});
+claude.use("downloads").then(function(d){dl=d},function(){});
+claude.use("db").then(function(d){
+  if(!d){ pintaBit(null); return }
+  dbNs=d;
+  try{
+    d.collection("bitacora").orderBy("ts","desc").limit(40).onSnapshot(function(snap){
+      BIT = snap.docs.map(function(x){ return x.data() });
+      pintaBit(BIT);
+    }, function(){ pintaBit(null) });
+  }catch(e){ pintaBit(null) }
+  var go=$("#bit-go"); if(go) go.disabled=false;
+},function(){ pintaBit(null) });
+
+function pintaBit(list){
+  var ul=$("#bit-list"), n=$("#bit-n");
+  if(!ul) return;
+  if(list===null){
+    ul.innerHTML='<li><span class="what bitempty">La bitácora no está disponible en esta vista.</span></li>';
+    if(n) n.textContent=""; return;
+  }
+  if(!list.length){
+    ul.innerHTML='<li><span class="what bitempty">Todavía no hay nada apuntado.</span></li>';
+    if(n) n.textContent="0 entradas"; return;
+  }
+  if(n) n.textContent=list.length+(list.length===1?" entrada":" entradas");
+  ul.innerHTML = list.slice(0,14).map(function(b){
+    return '<li><span class="when">'+esc(b.cuando||"")+'</span><span class="what">'+
+      (b.quien?'<b>'+esc(b.quien)+'</b>':'')+esc(b.que||"")+'</span></li>';
+  }).join("");
+  drawNet();
+}
+
+function apunta(quien, que){
+  if(!dbNs) return Promise.reject(new Error("sin db"));
+  var d=new Date();
+  return dbNs.collection("bitacora").add({
+    ts: Date.now(),
+    cuando: String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0"),
+    quien: quien||"tú",
+    que: que
+  });
+}
+
+$("#bit-go").addEventListener("click",function(){
+  var i=$("#bit-q"), v=i.value.trim(), b=$("#bit-go"), h=$("#bit-hint");
+  if(!v){i.focus();return}
+  b.disabled=true;
+  apunta("tú", v).then(function(){ i.value=""; b.disabled=false; })
+    .catch(function(){ b.disabled=false; h.textContent="No se pudo guardar. Vuelve a intentarlo."; });
+});
+$("#bit-q").addEventListener("keydown",function(e){ if(e.key==="Enter") $("#bit-go").click() });
+
+/* ── panel ──────────────────────────────────────────────────────────── */
+function shell(kind,nm,html){
+  $("#s-kind").textContent=kind; $("#s-nm").textContent=nm;
+  $("#s-body").innerHTML=html;
+  $("#sheet").hidden=false; $("#scrim").hidden=false; $("#s-x").focus();
+}
+function closeSheet(){
+  $("#sheet").hidden=true; $("#scrim").hidden=true;
+  if(last){last.setAttribute("aria-pressed","false"); last.focus(); last=null}
+}
+$("#s-x").addEventListener("click",closeSheet);
+$("#scrim").addEventListener("click",closeSheet);
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!$("#sheet").hidden)closeSheet()});
+
+function askBlock(ph){
+  return '<section><h4>Escríbele</h4><div class="askbox">'+
+    '<textarea id="q" placeholder="'+esc(ph||"Pregúntale lo que quieras")+'"></textarea>'+
+    '<div class="askrow"><button class="send" id="go" type="button">Preguntar</button>'+
+    '<span class="hint" id="hint"></span></div>'+
+    '<div class="out" id="out" hidden></div></div></section>';
+}
+var quienSoy="";
+function wireAsk(rol,quien){
+  quienSoy=quien||"";
+  var go=$("#go"), q=$("#q"), out=$("#out"), hint=$("#hint");
+  if(!go) return;
+  function run(prompt){
+    if(!sampleFn){hint.textContent="No disponible en esta vista.";return}
+    out.hidden=false; out.className="out"; out.textContent="Pensando…";
+    go.disabled=true; hint.textContent="";
+    sampleFn(ctx()+"\n\n---\n\n"+rol+"\n\n---\n\n"+prompt,{
+      modelTier:"default",
+      onText:function(e){out.textContent=e.text}
+    }).then(function(r){
+      out.textContent=r.text; go.disabled=false;
+      if(dbNs && !out.nextElementSibling){
+        var sb=document.createElement("button");
+        sb.className="savebtn"; sb.type="button"; sb.textContent="Guardar en la bitácora";
+        sb.addEventListener("click",function(){
+          sb.disabled=true; sb.textContent="Guardando…";
+          apunta(quienSoy, r.text.slice(0,600)).then(function(){sb.textContent="Guardado"})
+            .catch(function(){sb.disabled=false; sb.textContent="No se pudo guardar"});
+        });
+        out.parentNode.insertBefore(sb, out.nextSibling);
+      }
+    }).catch(function(e){
+      out.className="out err";
+      out.textContent = e && e.code==="not_granted"
+        ? "Has denegado el permiso para consultar a Claude desde esta página."
+        : e && e.code==="rate_limited" ? "Demasiadas consultas seguidas. Espera un momento."
+        : "No se pudo completar: "+((e&&e.message)||"error desconocido");
+      go.disabled=false;
+    });
+  }
+  go.addEventListener("click",function(){
+    var v=q.value.trim(); if(!v){q.focus();return}
+    run(v);
+  });
+  document.querySelectorAll(".act[data-p]").forEach(function(a){
+    a.addEventListener("click",function(){
+      q.value=a.dataset.p; run(a.dataset.p);
+      $("#s-body").scrollTop=$("#s-body").scrollHeight;
+    });
+  });
+  refreshAsk();
+}
+function refreshAsk(){
+  var go=$("#go"), hint=$("#hint");
+  if(!go) return;
+  if(!sampleFn){go.disabled=true; if(hint)hint.textContent="Conectando…"}
+  else{go.disabled=false; if(hint)hint.textContent="Responde Claude, con el encargo de este puesto cargado."}
+}
+
+function openNode(k,btn){
+  var d=T[k];
+  if(last) last.setAttribute("aria-pressed","false");
+  btn.setAttribute("aria-pressed","true"); last=btn;
+  var h='<section><h4>Su encargo</h4><p>'+esc(d.hace)+'</p></section>';
+  h+='<section><h4>En su cola ahora</h4><ul class="qlist">'+
+     d.cola.map(function(r){return '<li><span class="dot '+r[0]+'"></span><span>'+esc(r[1])+'</span></li>'}).join("")+
+     '</ul></section>';
+  if(d.acts&&d.acts.length){
+    h+='<section><h4>De un clic</h4><div class="acts">'+
+      d.acts.map(function(a){return '<button class="act" type="button" data-p="'+esc(a[1])+'"><span class="who">'+
+        esc(d.nm)+'</span>'+esc(a[0])+'</button>'}).join("")+'</div></section>';
+  }
+  h+=askBlock();
+  shell(d.kind,d.nm,h);
+  wireAsk(d.rol,d.nm);
+}
+
+function openFig(id,btn){
+  if(last) last.setAttribute("aria-pressed","false");
+  btn.setAttribute("aria-pressed","true"); last=btn;
+  var h="", rol="", kind="", nm="";
+  if(id==="fase0"){
+    kind="5 documentos"; nm="Fase 0 cerrada"; rol=T.coordinacion.rol;
+    h='<section><p>Lo único que existe del proyecto a día de hoy. Todo lo demás está por construir.</p></section><section>'+
+      [["BRIEFING.md","La Fase 0 completa: idea, ventana, veredicto económico, competencia, nombre, persona, voz, sistema visual y categorías. Cada dato marcado verificado / criterio / sin verificar."],
+       ["marca.html","El sistema de marca: símbolo, paleta con contraste calculado, las dos tipografías con su papel, aplicaciones y lista de assets."],
+       ["prompts.html","El kit de generación de imágenes: coleta de estilo, fondo maestro, hojas de personaje de Vera y Nuri, y biblioteca de piezas."],
+       ["KICKOFF-CONSTRUCCION.md","El mensaje para pegar en el chat de Construcción. Va primero."],
+       ["KICKOFF-MARKETING.md","El mensaje para Marketing. Solo cuando Construcción confirme las rutas."]
+      ].map(function(p){return '<details class="piece"><summary>'+esc(p[0])+
+        '<span class="tag ok">Cerrado</span></summary><div class="body">'+esc(p[1])+'</div></details>'}).join("")+'</section>';
+  } else if(id==="rutas"){
+    kind="0 rutas"; nm="Nada publicado"; rol=T.construccion.rol;
+    h='<section><p>El repositorio no existe todavía. Las rutas propuestas en el BRIEFING están sin confirmar, y eso es lo que bloquea a Marketing.</p></section>'+
+      '<section><h4>Propuestas, sin confirmar</h4>'+
+      [["/","Home. Abre con criterio editorial, no con rejilla de producto."],
+       ["/look/[slug]","La unidad de contenido: un look con sus 4-6 piezas."],
+       ["/categoria/[slug]","Looks de peli · en pareja · maquillaje · pelucas · complementos."],
+       ["/guias/[slug]","Contenido tipo blog."],
+       ["/que-ver","Prime Video Channels. 3 € fijos por prueba gratis, sin que el visitante gaste nada."],
+       ["/legal/*","Privacidad, aviso de afiliados y contacto. 30 minutos y desbloquean AdSense."]
+      ].map(function(r){return '<details class="piece"><summary>'+esc(r[0])+
+        '<span class="tag stop">Sin crear</span></summary><div class="body">'+esc(r[1])+'</div></details>'}).join("")+'</section>';
+  } else if(id==="catalogo"){
+    kind="0 productos"; nm="Catálogo vacío"; rol=T.catalogador.rol;
+    h='<section><p>Sin fotos de producto, el nombre es <strong>lo único</strong> que tiene el visitante para decidir. Por eso ningún producto entra sin marca y modelo: en Navidad Ya entraron 34 sin ellos y siguen bloqueando la conversión meses después.</p></section>'+
+      '<section><h4>La ficha de siete casillas</h4><div class="body mono" style="font-size:12px;color:var(--texto);white-space:pre-wrap;line-height:1.7">PIEZA · COLOR · LARGO · MANGA · CUELLO · TEJIDO · DETALLE</div>'+
+      '<p style="margin-top:10px">Se rellena mirando la ficha en Amazon con tus ojos. La imagen no se mueve de su sitio: lo prohibido es que viaje, no que la mires.</p></section>';
+  } else if(id==="redes"){
+    kind="0 cuentas"; nm="Sin presencia"; rol=T.social.rol;
+    h='<section><p>Ninguna cuenta creada. Las abres tú: yo no puedo registrar perfiles en tu nombre. Y van con el <strong>correo de marca</strong>, nunca con el personal.</p></section>'+
+      '<section><h4>Por qué Pinterest primero</h4><p>Es un buscador, no una red social: no necesita seguidores, el pin sigue trayendo visitas meses después, y funciona con avatares y tipografía — que es lo único que podemos producir legalmente sin fotos de producto. En Navidad Ya se puso Instagram primero "porque es lo que se hace" y fue un error documentado.</p></section>'+
+      '<section><h4>Los @ comprobados el 07/09</h4><div class="body mono" style="font-size:12px;color:var(--texto);white-space:pre-wrap;line-height:1.7">@lookdemiedo  Instagram: libre\n@lookdemiedo  TikTok: libre\n@lookdemiedo  Pinterest: sin verificar</div></section>';
+  }
+  h+=askBlock();
+  shell(kind,nm,h);
+  wireAsk(rol,kind);
+}
+
+/* ── calendario ─────────────────────────────────────────────────────── */
+$("#ics").addEventListener("click",function(){
+  var hoy=new Date(), pad=function(n){return String(n).padStart(2,"0")};
+  var f=function(d){return d.getUTCFullYear()+pad(d.getUTCMonth()+1)+pad(d.getUTCDate())};
+  var ev=[
+   [0,"Comprar lookdemiedo.com y .es","Bloquea la verificacion de AdSense. Es el error 9 de Navidad Ya, donde el dominio se dejo meses y bloqueo la temporada entera."],
+   [0,"Mirar en Central de Afiliados si las recompensas cuentan","Si las recompensas de Prime Video Channels cuentan para las 3 ventas de aprobacion, es el camino mas corto al objetivo. Sostiene el plan entero."],
+   [1,"Arrancar el chat de Construccion","Pegar KICKOFF-CONSTRUCCION.md. Repo, deploy vacio pero desplegando, y enlace.ts el dia 1."],
+   [2,"Confirmar las rutas","Hasta que Construccion no confirme donde vive cada tipo de contenido, Marketing no escribe una palabra."],
+   [3,"Generar el fondo maestro y los dos avatares","Una vez cada uno, se reutilizan en los 40 looks. Los prompts estan escritos."],
+   [4,"Crear el correo de marca y la cuenta de Pinterest","Pinterest primero. Bio con la divulgacion literal: Como Afiliado de Amazon, gano por compras elegibles."]
+  ].map(function(e,i){
+    var d=new Date(hoy.getTime()+e[0]*864e5);
+    return ["BEGIN:VEVENT","UID:lookdemiedo-"+i+"-"+f(d)+"@lookdemiedo",
+      "DTSTAMP:"+f(hoy)+"T090000Z","DTSTART;VALUE=DATE:"+f(d),
+      "SUMMARY:"+e[1],"DESCRIPTION:"+e[2],"END:VEVENT"].join("\r\n");
+  }).join("\r\n");
+  var ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Look de Miedo//Sala de Operaciones//ES",
+    "CALSCALE:GREGORIAN",ev,"END:VCALENDAR"].join("\r\n");
+  if(!dl){alert("La descarga no está disponible en esta vista.");return}
+  dl.save({filename:"look-de-miedo-proximos-pasos.ics",data:ics}).catch(function(){});
+});
+
+$("#theme").addEventListener("click",function(){
+  var r=document.documentElement, c=r.getAttribute("data-theme");
+  var dark = c ? c==="dark" : true;
+  r.setAttribute("data-theme", dark?"light":"dark");
+});
+
+$("#foot").innerHTML='Las cifras salen de contar los archivos reales de <span class="mono">look-de-miedo/</span> '+
+ 'y de las comprobaciones de dominios y <span class="mono">@</span> hechas el 7 de septiembre de 2026. '+
+ 'Lo que no tiene fuente sale como cero, no como estimación. '+
+ 'Cuando escribes a un puesto responde Claude con el encargo de ese puesto cargado en la pregunta: '+
+ '<strong>no es el chat de Claude Code</strong>, así que no lee el repositorio ni escribe archivos. '+
+ 'Sirve para pensar, redactar y decidir; para tocar código sigue haciendo falta el chat. '+
+ 'Cada consulta gasta de tu cuenta de Claude, por eso nada se lanza solo al abrir.';
+})();
+</script>

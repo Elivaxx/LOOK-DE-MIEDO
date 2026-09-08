@@ -1,0 +1,530 @@
+<title>Look de Miedo — Sistema de marca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap">
+
+<style>
+:root{
+  --noche:#0D0A11;
+  --panel:#171320;
+  --panel-2:#1F1A2B;
+  --hueso:#F4EFE6;
+  --lila:#B98CFF;
+  --rosa:#FF3D68;
+  --niebla:#6E6780;
+  --linea:#2C2438;
+
+  --display:"Bodoni Moda", Didot, "Times New Roman", serif;
+  --alt:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --cuerpo:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --mono:ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --gutter:14px;
+  --r:4px;
+}
+
+*{box-sizing:border-box}
+
+body{
+  background:var(--noche);
+  color:var(--hueso);
+  font-family:var(--cuerpo);
+  font-size:15px;
+  line-height:1.6;
+  margin:0;
+  padding:clamp(16px,4vw,44px);
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:1180px;margin:0 auto}
+
+/* ---------- cabecera ---------- */
+.top{
+  display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;
+  justify-content:space-between;
+  padding-bottom:22px;margin-bottom:var(--gutter);
+  border-bottom:1px solid var(--linea);
+}
+.top h1{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(38px,6.5vw,68px);
+  line-height:0.95;
+  margin:0;
+  text-wrap:balance;
+}
+.top h1 em{font-style:italic;color:var(--lila)}
+.meta{
+  font-family:var(--mono);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--niebla);text-align:right;line-height:2;
+}
+
+/* ---------- rejilla ---------- */
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--gutter)}
+.panel{
+  background:var(--panel);
+  border:1px solid var(--linea);
+  border-radius:var(--r);
+  padding:22px;
+  position:relative;
+  min-width:0;
+}
+.c2{grid-column:span 2}
+.c3{grid-column:span 3}
+.c4{grid-column:span 4}
+.c6{grid-column:span 6}
+
+.label{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--niebla);
+  display:block;margin-bottom:16px;
+}
+h2{
+  font-family:var(--display);font-weight:400;
+  font-size:26px;line-height:1.1;margin:0 0 10px;text-wrap:balance;
+}
+h3{
+  font-family:var(--cuerpo);font-weight:800;font-size:12px;
+  letter-spacing:.06em;text-transform:uppercase;
+  margin:0 0 8px;color:var(--hueso);
+}
+p{margin:0 0 12px;max-width:62ch;color:#CFC7D8}
+p:last-child{margin-bottom:0}
+strong{color:var(--hueso);font-weight:700}
+.mut{color:var(--niebla)}
+
+/* ---------- portada del logo ---------- */
+.cover{
+  background:var(--panel);
+  display:flex;flex-direction:column;justify-content:space-between;
+  gap:34px;min-height:330px;
+}
+.lockup{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.wordmark{
+  font-family:var(--display);font-size:clamp(34px,5vw,54px);
+  line-height:.9;letter-spacing:-.01em;
+}
+.wordmark span{display:block}
+.tag{
+  font-family:var(--display);font-style:italic;
+  font-size:clamp(20px,3vw,30px);color:var(--lila);line-height:1.2;
+}
+
+/* ---------- construcción ---------- */
+.constr{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.constr figure{margin:0;text-align:center}
+.constr figcaption{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--niebla);margin-top:8px;
+}
+
+/* ---------- color ---------- */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px}
+.sw{border:1px solid var(--linea);border-radius:var(--r);overflow:hidden}
+.sw .chip{height:76px;display:block}
+.sw .info{padding:10px 12px;background:var(--panel-2)}
+.sw .nm{font-weight:800;font-size:12.5px;letter-spacing:.02em}
+.sw .hx{font-family:var(--mono);font-size:11px;color:var(--niebla);margin-top:2px}
+.sw .ct{font-family:var(--mono);font-size:10px;color:var(--lila);margin-top:5px}
+.sw .role{font-size:11px;color:#CFC7D8;margin-top:6px;line-height:1.4}
+
+/* ---------- tipografía ---------- */
+.typechoice{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--gutter)}
+.spec{border:1px solid var(--linea);border-radius:var(--r);padding:18px;background:var(--panel-2)}
+.spec.pick{border-color:var(--lila)}
+.spec .badge{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--noche);background:var(--lila);
+  padding:3px 7px;border-radius:2px;display:inline-block;margin-bottom:14px;
+}
+.spec .badge.alt{background:transparent;color:var(--niebla);border:1px solid var(--linea)}
+.big-a{font-family:var(--display);font-size:64px;line-height:1;margin:0 0 6px}
+.big-b{font-family:var(--alt);font-weight:800;font-size:52px;line-height:1;margin:0 0 6px;letter-spacing:-.02em}
+.sample-a{font-family:var(--display);font-size:25px;line-height:1.2;margin:10px 0}
+.sample-b{font-family:var(--alt);font-weight:700;font-size:22px;line-height:1.2;margin:10px 0;letter-spacing:-.01em}
+.body-s{font-size:13.5px;color:#CFC7D8;line-height:1.65;margin:12px 0 0}
+.stack{font-family:var(--mono);font-size:10.5px;color:var(--niebla);margin-top:14px;line-height:1.7}
+
+/* ---------- aplicación web ---------- */
+.browser{border:1px solid var(--linea);border-radius:var(--r);overflow:hidden;background:var(--noche)}
+.chrome{
+  display:flex;align-items:center;gap:8px;padding:9px 12px;
+  background:var(--panel-2);border-bottom:1px solid var(--linea);
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--linea);flex:none}
+.url{
+  font-family:var(--mono);font-size:10.5px;color:var(--niebla);
+  background:var(--noche);padding:3px 10px;border-radius:20px;margin-left:6px;
+}
+.site{padding:22px}
+.nav{
+  display:flex;gap:18px;align-items:center;flex-wrap:wrap;
+  padding-bottom:16px;border-bottom:1px solid var(--linea);
+}
+.nav .brand{font-family:var(--display);font-size:19px;margin-right:auto;display:flex;align-items:center;gap:8px}
+.nav a{
+  font-size:11.5px;font-weight:700;letter-spacing:.03em;
+  text-transform:uppercase;color:var(--niebla);text-decoration:none;
+}
+.nav a.on{color:var(--lila)}
+.hero-h{font-family:var(--display);font-size:clamp(26px,4vw,40px);line-height:1.05;margin:20px 0 6px}
+.hero-p{font-size:13px;color:var(--niebla);margin:0 0 18px}
+.lookrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.lookcard{border:1px solid var(--linea);border-radius:var(--r);padding:12px;background:var(--panel)}
+.lookcard .ph{
+  height:74px;border-radius:2px;margin-bottom:10px;
+  background:
+    repeating-linear-gradient(135deg,transparent 0 6px,rgba(185,140,255,.07) 6px 12px),
+    var(--panel-2);
+  display:flex;align-items:center;justify-content:center;
+}
+.lookcard .nm{font-weight:800;font-size:12px;line-height:1.3}
+.lookcard .pz{font-family:var(--mono);font-size:9.5px;color:var(--niebla);margin-top:4px;letter-spacing:.05em}
+.cta{
+  display:inline-block;background:var(--rosa);color:var(--noche);
+  font-weight:800;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  padding:9px 16px;border-radius:2px;margin-top:16px;text-decoration:none;
+}
+
+/* ---------- pin ---------- */
+.pinwrap{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.pin{
+  width:186px;aspect-ratio:2/3;flex:none;
+  border:1px solid var(--linea);border-radius:var(--r);
+  background:var(--noche);
+  padding:16px;display:flex;flex-direction:column;
+}
+.pin .k{
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--lila);
+}
+.pin .t{font-family:var(--display);font-size:26px;line-height:1;margin:8px 0 0}
+.pin .fig{
+  flex:1;margin:14px 0;border-radius:2px;
+  background:
+    repeating-linear-gradient(135deg,transparent 0 7px,rgba(185,140,255,.08) 7px 14px),
+    var(--panel-2);
+  display:flex;align-items:center;justify-content:center;
+}
+.pin .list{font-size:10px;line-height:1.75;color:#CFC7D8}
+.pin .foot{
+  font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--niebla);
+  margin-top:10px;padding-top:8px;border-top:1px solid var(--linea);
+}
+
+/* ---------- reglas de imagen ---------- */
+.rules{display:grid;gap:8px}
+.rule{
+  display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;
+  padding:11px 13px;border-radius:var(--r);
+  background:var(--panel-2);border-left:2px solid var(--linea);
+}
+.rule.si{border-left-color:var(--lila)}
+.rule.no{border-left-color:var(--rosa)}
+.rule .mk{font-family:var(--mono);font-size:13px;font-weight:700;line-height:1.5}
+.rule.si .mk{color:var(--lila)}
+.rule.no .mk{color:var(--rosa)}
+.rule .tx{font-size:12.5px;line-height:1.5}
+.rule .tx b{display:block;font-weight:800;font-size:12.5px;margin-bottom:1px}
+.rule .tx span{color:var(--niebla);font-size:11.5px}
+
+/* ---------- assets ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{
+  text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--niebla);font-weight:400;
+  padding:0 10px 9px 0;border-bottom:1px solid var(--linea);
+}
+td{padding:9px 10px 9px 0;border-bottom:1px solid var(--linea);vertical-align:top;line-height:1.45}
+tr:last-child td{border-bottom:none}
+td.n{font-weight:700}
+td.s{font-family:var(--mono);font-size:11px;color:var(--lila);white-space:nowrap}
+td.w{color:var(--niebla);font-size:11.5px}
+.tablescroll{overflow-x:auto}
+
+/* ---------- pie ---------- */
+footer{
+  margin-top:var(--gutter);padding-top:18px;border-top:1px solid var(--linea);
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--niebla);
+}
+
+@media (max-width:860px){
+  .c2,.c3,.c4{grid-column:span 6}
+}
+</style>
+
+<div class="wrap">
+
+  <header class="top">
+    <h1>Look de Miedo<br><em>sistema de marca</em></h1>
+    <div class="meta">
+      Propuesta · v1<br>
+      7 septiembre 2026<br>
+      Fase 0 · paso 8
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <!-- PORTADA -->
+    <section class="panel cover c3">
+      <span class="label">Marca</span>
+      <div class="lockup">
+        <svg width="86" height="86" viewBox="0 0 100 100" aria-label="Símbolo de Look de Miedo: una percha cuyo gancho es un signo de interrogación">
+          <g fill="none" stroke="#B98CFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M50 45 L50 29 C50 21 58.5 19.5 58.5 13.5 C58.5 8 51.5 5.2 45.8 8.6"/>
+            <path d="M50 46 L21.5 67 L78.5 67 Z"/>
+          </g>
+          <circle cx="50" cy="59" r="3.6" fill="#FF3D68"/>
+        </svg>
+        <div class="wordmark"><span>Look</span><span>de Miedo</span></div>
+      </div>
+      <div>
+        <p class="tag">El look, pieza a pieza.</p>
+        <p class="mut" style="font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin-top:12px">lookdemiedo.es</p>
+      </div>
+    </section>
+
+    <!-- CONSTRUCCIÓN -->
+    <section class="panel c3">
+      <span class="label">El símbolo · construcción</span>
+      <h2>Una percha que pregunta</h2>
+      <p>El gancho de una percha y la curva de un signo de interrogación son la misma forma. El punto del interrogante cae dentro del triángulo.</p>
+      <div class="constr" style="margin-top:16px">
+        <figure>
+          <svg width="92" height="92" viewBox="0 0 100 100">
+            <g stroke="#2C2438" stroke-width="1">
+              <line x1="50" y1="4" x2="50" y2="96"/>
+              <line x1="4" y1="67" x2="96" y2="67"/>
+              <circle cx="50" cy="13.5" r="9.5" fill="none"/>
+            </g>
+            <g fill="none" stroke="#6E6780" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M50 45 L50 29 C50 21 58.5 19.5 58.5 13.5 C58.5 8 51.5 5.2 45.8 8.6"/>
+              <path d="M50 46 L21.5 67 L78.5 67 Z"/>
+            </g>
+            <circle cx="50" cy="59" r="3.6" fill="#6E6780"/>
+          </svg>
+          <figcaption>Retícula</figcaption>
+        </figure>
+        <figure>
+          <svg width="92" height="92" viewBox="0 0 100 100">
+            <g fill="none" stroke="#F4EFE6" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M50 45 L50 29 C50 21 58.5 19.5 58.5 13.5 C58.5 8 51.5 5.2 45.8 8.6"/>
+              <path d="M50 46 L21.5 67 L78.5 67 Z"/>
+            </g>
+            <circle cx="50" cy="59" r="3.6" fill="#F4EFE6"/>
+          </svg>
+          <figcaption>Una tinta</figcaption>
+        </figure>
+        <figure>
+          <svg width="52" height="52" viewBox="0 0 100 100" style="background:#B98CFF;border-radius:9px">
+            <g fill="none" stroke="#0D0A11" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M50 45 L50 29 C50 21 58.5 19.5 58.5 13.5 C58.5 8 51.5 5.2 45.8 8.6"/>
+              <path d="M50 46 L21.5 67 L78.5 67 Z"/>
+            </g>
+            <circle cx="50" cy="59" r="4" fill="#0D0A11"/>
+          </svg>
+          <figcaption>Favicon 32px</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- COLOR -->
+    <section class="panel c6">
+      <span class="label">Sistema de color · contraste verificado sobre Negro noche</span>
+      <h2>Nada de naranja calabaza</h2>
+      <p style="margin-bottom:18px">Es el cliché que usan las siete tiendas competidoras. El lila hace de acento de marca; el rosa se reserva <strong>solo</strong> para llamadas a la acción, y por eso no pierde fuerza.</p>
+      <div class="swatches">
+        <div class="sw">
+          <span class="chip" style="background:#0D0A11;box-shadow:inset 0 0 0 1px #2C2438"></span>
+          <div class="info">
+            <div class="nm">Negro noche</div>
+            <div class="hx">#0D0A11</div>
+            <div class="role">Fondo de todo. Negro con sesgo violeta, no plano</div>
+          </div>
+        </div>
+        <div class="sw">
+          <span class="chip" style="background:#F4EFE6"></span>
+          <div class="info">
+            <div class="nm">Hueso</div>
+            <div class="hx">#F4EFE6</div>
+            <div class="ct">17,16:1 · AA</div>
+            <div class="role">Texto y superficies claras</div>
+          </div>
+        </div>
+        <div class="sw">
+          <span class="chip" style="background:#B98CFF"></span>
+          <div class="info">
+            <div class="nm">Lila</div>
+            <div class="hx">#B98CFF</div>
+            <div class="ct">7,73:1 · AA</div>
+            <div class="role">Acento de marca. El símbolo, los enlaces, los destacados</div>
+          </div>
+        </div>
+        <div class="sw">
+          <span class="chip" style="background:#FF3D68"></span>
+          <div class="info">
+            <div class="nm">Rosa sangre</div>
+            <div class="hx">#FF3D68</div>
+            <div class="ct">5,73:1 · AA</div>
+            <div class="role">Solo CTA. Si se usa en más sitios, deja de funcionar</div>
+          </div>
+        </div>
+        <div class="sw">
+          <span class="chip" style="background:#6E6780"></span>
+          <div class="info">
+            <div class="nm">Gris niebla</div>
+            <div class="hx">#6E6780</div>
+            <div class="ct">3,66:1 · AA grande</div>
+            <div class="role">Secundario y bordes. No para texto pequeño</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIPOGRAFÍA -->
+    <section class="panel c6">
+      <span class="label">Tipografía · dos familias, dos papeles</span>
+      <h2>Las dos, cada una en lo suyo</h2>
+      <p style="margin-bottom:18px">No es un empate ni una mezcla: son <strong>las dos mitades de la marca</strong>. Bodoni pone la voz de guía editorial; Bricolage, la energía de redes. Cada una tiene su territorio y no se pisan. Fuera Manrope — Bricolage aguanta el texto corrido, y <strong>dos familias es mejor sistema que tres</strong>.</p>
+      <div class="typechoice">
+        <div class="spec pick">
+          <span class="badge">Editorial</span>
+          <div class="big-a">Aa</div>
+          <h3 style="margin-bottom:2px">Bodoni Moda</h3>
+          <p class="mut" style="font-size:11.5px;margin:0">La didone de alto contraste es la voz de la revista de moda. Nos separa de las siete tiendas, que van todas de sans gorda.</p>
+          <div class="sample-a">Gótica de internado</div>
+          <div class="stack"><strong style="color:#B98CFF">Dónde:</strong> nombre del look, titulares de guía, la marca, el título del pin<br><br><strong style="color:#B98CFF">Dónde no:</strong> nada por debajo de 20&nbsp;px — los trazos finos se rompen en pantalla</div>
+        </div>
+        <div class="spec pick">
+          <span class="badge">Todo lo demás</span>
+          <div class="big-b">Aa</div>
+          <h3 style="margin-bottom:2px">Bricolage Grotesque</h3>
+          <p class="mut" style="font-size:11.5px;margin:0">Mayúsculas gordas y contraste alto: la energía de Modo Oculto y PBS, que son tus referencias.</p>
+          <div class="sample-b">Bro, ¿qué me pongo?</div>
+          <div class="stack"><strong style="color:#B98CFF">Dónde:</strong> el gancho, botones, etiquetas, navegación, fichas de pieza y <strong>todo el texto corrido</strong><br><br>Pesos: 400 cuerpo · 700 etiquetas · 800 impacto</div>
+        </div>
+      </div>
+      <p class="body-s" style="margin-top:16px;max-width:64ch">A ver, ¿qué te pones este año? Este es de los que se montan solos: cinco cosas, ninguna rara, y lo tienes. Y si vais dos, el de tu amiga sale de aquí mismo. <span class="mut">— texto corrido en Bricolage 400</span></p>
+    </section>
+
+    <!-- APLICACIÓN WEB -->
+    <section class="panel c4">
+      <span class="label">Aplicación · web</span>
+      <div class="browser">
+        <div class="chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="url">lookdemiedo.es/looks/gotica-de-internado</span>
+        </div>
+        <div class="site">
+          <nav class="nav">
+            <span class="brand">
+              <svg width="20" height="20" viewBox="0 0 100 100" aria-hidden="true">
+                <g fill="none" stroke="#B98CFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M50 45 L50 29 C50 21 58.5 19.5 58.5 13.5 C58.5 8 51.5 5.2 45.8 8.6"/>
+                  <path d="M50 46 L21.5 67 L78.5 67 Z"/>
+                </g>
+              </svg>
+              Look de Miedo
+            </span>
+            <a href="#" class="on">Looks</a>
+            <a href="#">En pareja</a>
+            <a href="#">Maquillaje</a>
+            <a href="#">Qué ver</a>
+          </nav>
+          <h3 class="hero-h" style="font-family:var(--display);font-weight:400;text-transform:none;letter-spacing:0">Gótica de internado, en 5 compras</h3>
+          <p class="hero-p">Cinco piezas, ninguna rara. Y si vais dos, el de tu amiga sale de aquí mismo.</p>
+          <div class="lookrow">
+            <div class="lookcard">
+              <div class="ph"></div>
+              <div class="nm">Vestido negro cuello blanco</div>
+              <div class="pz">Marca · modelo</div>
+            </div>
+            <div class="lookcard">
+              <div class="ph"></div>
+              <div class="nm">Medias de rayas</div>
+              <div class="pz">Marca · modelo</div>
+            </div>
+            <div class="lookcard">
+              <div class="ph"></div>
+              <div class="nm">Peluca trenzas</div>
+              <div class="pz">Marca · modelo</div>
+            </div>
+          </div>
+          <a href="#" class="cta">Ver el look entero</a>
+          <p class="mut" style="font-size:10px;margin-top:14px">Como Afiliado de Amazon, gano por compras elegibles.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIN -->
+    <section class="panel c2">
+      <span class="label">Aplicación · Pinterest 2:3</span>
+      <div class="pinwrap">
+        <div class="pin">
+          <div class="k">Bro, ¿qué me pongo?</div>
+          <div class="t">Gótica de internado</div>
+          <div class="fig">
+            <svg width="44" height="44" viewBox="0 0 100 100" aria-hidden="true">
+              <g fill="none" stroke="#B98CFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M50 45 L50 29 C50 21 58.5 19.5 58.5 13.5 C58.5 8 51.5 5.2 45.8 8.6"/>
+                <path d="M50 46 L21.5 67 L78.5 67 Z"/>
+              </g>
+              <circle cx="50" cy="59" r="3.6" fill="#FF3D68"/>
+            </svg>
+          </div>
+          <div class="list">Vestido · Medias<br>Peluca · Botas<br>Maquillaje</div>
+          <div class="foot">lookdemiedo.es · #ad</div>
+        </div>
+      </div>
+      <p class="mut" style="font-size:11.5px;margin-top:14px">El título del pin es <strong>SEO, no eslogan</strong>. El avatar ocupa el hueco central. <code style="font-family:var(--mono);font-size:10.5px;color:var(--lila)">#ad</code> siempre.</p>
+    </section>
+
+    <!-- REGLAS DE IMAGEN -->
+    <section class="panel c3">
+      <span class="label">Sistema visual · de dónde sale cada imagen</span>
+      <div class="rules">
+        <div class="rule si"><span class="mk">✓</span><span class="tx"><b>Pexels / Unsplash, filtro «0 personas»</b><span>Ambiente y fondos. Sin persona no hay cesión de modelo que pedir</span></span></div>
+        <div class="rule si"><span class="mk">✓</span><span class="tx"><b>Stock de pago</b><span>Único caso si hace falta una cara. Garantiza cesión por contrato</span></span></div>
+        <div class="rule si"><span class="mk">✓</span><span class="tx"><b>Avatares propios, 2 o 3</b><span>Llevan el arquetipo, nunca el modelo concreto. No dicen haber probado nada</span></span></div>
+        <div class="rule si"><span class="mk">✓</span><span class="tx"><b>Dibujos generados desde texto</b><span>Las piezas sueltas. Jamás partiendo de una imagen ajena</span></span></div>
+        <div class="rule si"><span class="mk">✓</span><span class="tx"><b>Dominio público europeo</b><span>Plazo español, no americano: LPI art. 28.2</span></span></div>
+        <div class="rule no"><span class="mk">✕</span><span class="tx"><b>Fotos de Amazon</b><span>Se abren el día que haya PA API. Antes no, por ninguna vía</span></span></div>
+        <div class="rule no"><span class="mk">✕</span><span class="tx"><b>Pinterest, Instagram, fotogramas modernos</b><span>Copyright ajeno y derecho a la propia imagen, LO 1/1982</span></span></div>
+      </div>
+    </section>
+
+    <!-- ASSETS -->
+    <section class="panel c3">
+      <span class="label">Assets a producir · por orden</span>
+      <div class="tablescroll">
+        <table>
+          <thead>
+            <tr><th>Pieza</th><th>Formato</th><th>Cuándo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="n">Símbolo + lockup</td><td class="s">SVG</td><td class="w">Hecho, en este board</td></tr>
+            <tr><td class="n">Favicon</td><td class="s">32 · 180 px</td><td class="w">Día 1</td></tr>
+            <tr><td class="n">Fondo maestro<br>armario abierto</td><td class="s">2400×1600</td><td class="w">Antes de la 1ª pieza. Se reutiliza en los 40 looks</td></tr>
+            <tr><td class="n">Avatares</td><td class="s">2-3 + sheet</td><td class="w">Antes del 1er carrusel</td></tr>
+            <tr><td class="n">Plantilla de pin</td><td class="s">1000×1500</td><td class="w">Antes de abrir Pinterest</td></tr>
+            <tr><td class="n">Plantilla carrusel</td><td class="s">1080×1350</td><td class="w">Con el 1er look</td></tr>
+            <tr><td class="n">Imagen OG</td><td class="s">1200×630</td><td class="w">Antes de publicar</td></tr>
+            <tr><td class="n">Biblioteca de piezas</td><td class="s">40-60 SVG</td><td class="w">Por tandas. Un sombrero sirve para 12 looks</td></tr>
+            <tr><td class="n">Marcador sin foto</td><td class="s">Componente</td><td class="w">Día 1, con enlace.ts</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <span>Look de Miedo · propuesta v2 · pendiente de OK</span>
+    <span>Paleta y contraste verificados · Bodoni Moda + Bricolage Grotesque</span>
+  </footer>
+
+</div>

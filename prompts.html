@@ -1,0 +1,396 @@
+<title>Prompts de Look de Miedo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap">
+
+<style>
+:root{
+  --noche:#0D0A11;
+  --panel:#171320;
+  --panel-2:#1F1A2B;
+  --hueso:#F4EFE6;
+  --lila:#B98CFF;
+  --rosa:#FF3D68;
+  --niebla:#6E6780;
+  --linea:#2C2438;
+  --display:"Bodoni Moda", Didot, "Times New Roman", serif;
+  --cuerpo:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --mono:ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--noche);color:var(--hueso);
+  font-family:var(--cuerpo);font-size:15px;line-height:1.65;
+  margin:0;padding:clamp(16px,4vw,44px);-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:840px;margin:0 auto}
+
+header{border-bottom:1px solid var(--linea);padding-bottom:24px;margin-bottom:34px}
+h1{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(34px,6vw,58px);line-height:1;margin:0 0 12px;text-wrap:balance;
+}
+h1 em{font-style:italic;color:var(--lila)}
+.sub{color:#CFC7D8;max-width:62ch;margin:0}
+
+section{margin-bottom:40px}
+h2{
+  font-family:var(--display);font-weight:400;font-size:30px;
+  line-height:1.1;margin:0 0 6px;text-wrap:balance;
+}
+h3{
+  font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;
+  margin:26px 0 8px;color:var(--lila);
+}
+.step{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--niebla);display:block;margin-bottom:10px;
+}
+p{margin:0 0 14px;max-width:64ch;color:#CFC7D8}
+p:last-child{margin-bottom:0}
+strong{color:var(--hueso);font-weight:700}
+code{font-family:var(--mono);font-size:.88em;color:var(--lila)}
+
+.block{
+  border:1px solid var(--linea);border-radius:4px;
+  background:var(--panel);overflow:hidden;margin:12px 0 20px;
+}
+.block .bar{
+  display:flex;align-items:center;gap:12px;
+  padding:9px 12px;background:var(--panel-2);border-bottom:1px solid var(--linea);
+}
+.block .bar .t{
+  font-family:var(--mono);font-size:10px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--niebla);margin-right:auto;
+}
+button.copy{
+  font-family:var(--cuerpo);font-weight:800;font-size:10.5px;
+  letter-spacing:.07em;text-transform:uppercase;
+  background:transparent;color:var(--lila);
+  border:1px solid var(--linea);border-radius:3px;
+  padding:5px 11px;cursor:pointer;
+}
+button.copy:hover{border-color:var(--lila)}
+button.copy:focus-visible{outline:2px solid var(--lila);outline-offset:2px}
+button.copy.ok{color:var(--noche);background:var(--lila);border-color:var(--lila)}
+pre{
+  margin:0;padding:16px;overflow-x:auto;
+  font-family:var(--mono);font-size:12px;line-height:1.75;
+  color:var(--hueso);white-space:pre-wrap;word-break:break-word;
+}
+pre .v{color:var(--rosa)}
+
+.note{
+  border-left:2px solid var(--lila);background:var(--panel-2);
+  padding:14px 16px;border-radius:0 4px 4px 0;margin:18px 0;
+}
+.note.warn{border-left-color:var(--rosa)}
+.note p{margin:0;font-size:13.5px;max-width:none}
+.note p + p{margin-top:8px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
+.card{border:1px solid var(--linea);border-radius:4px;padding:16px;background:var(--panel)}
+.card .nm{font-family:var(--display);font-size:22px;line-height:1;margin-bottom:4px}
+.card .rl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--niebla);margin-bottom:12px}
+.card dl{margin:0;font-size:12.5px;line-height:1.7}
+.card dt{font-weight:800;color:var(--niebla);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;margin-top:8px}
+.card dt:first-child{margin-top:0}
+.card dd{margin:0;color:#CFC7D8}
+
+ul{margin:0 0 14px;padding-left:20px;color:#CFC7D8;max-width:64ch}
+li{margin-bottom:7px}
+li::marker{color:var(--lila)}
+ul.no li::marker{color:var(--rosa)}
+
+footer{
+  border-top:1px solid var(--linea);margin-top:44px;padding-top:20px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--niebla);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <h1>Prompts de <em>Look de Miedo</em></h1>
+  <p class="sub">Todo lo que hay que generar, con la dirección de arte ya atada a la paleta. Los prompts van en inglés porque los modelos de imagen obedecen mejor; las explicaciones, en español.</p>
+</header>
+
+<section>
+  <span class="step">Lo primero · la coleta de estilo</span>
+  <h2>Una sola cola pegada a todo</h2>
+  <p>Este bloque se pega <strong>al final de cada prompt, siempre igual</strong>. Es lo único que hace que 40 imágenes generadas en semanas distintas parezcan de la misma web. Si lo cambias a mitad, se rompe la coherencia y hay que rehacer las anteriores.</p>
+
+  <div class="block">
+    <div class="bar"><span class="t">Coleta de estilo — va en todos</span><button class="copy" data-t="cola">Copiar</button></div>
+    <pre id="cola">flat vector illustration, thick uniform outlines of even weight, no gradients, no shading, no texture, no drop shadows. Strictly limited palette: background #0D0A11, lines and light areas #F4EFE6, primary fill #B98CFF, accent #FF3D68 used on one small element only. Centered composition, generous negative space, clean silhouette. No text, no letters, no logos, no watermarks, no brand names.</pre>
+  </div>
+
+  <div class="note">
+    <p><strong>Por qué plano y de línea gruesa y no realista:</strong> es el mismo lenguaje que el símbolo de la percha, así que el logo y las piezas se ven de la misma familia. Y es lo único que se puede repetir 40 veces sin que se note el cambio de modelo.</p>
+  </div>
+</section>
+
+<section>
+  <span class="step">Pieza 1 · una sola vez</span>
+  <h2>El fondo maestro</h2>
+  <p>Un armario abierto y vacío. Se genera <strong>una vez</strong> y se reutiliza en los 40 looks: el avatar y las piezas se montan encima. Es el ahorro de producción más grande del proyecto.</p>
+  <p>Genéralo en <strong>vertical 2:3</strong>, que es el formato del pin. De ahí se recorta el 4:5 del carrusel y el 1200×630 de portada.</p>
+
+  <div class="block">
+    <div class="bar"><span class="t">Fondo maestro · 2:3 vertical</span><button class="copy" data-t="fondo">Copiar</button></div>
+    <pre id="fondo">An open wardrobe seen straight from the front, both doors swung wide open, revealing an empty interior with a horizontal hanging rail and one shelf above it. Three or four bare empty hangers on the rail, slightly uneven. The wardrobe interior is a deeper shade than the wall around it. Nothing hanging, no clothes — the space is empty and waiting. Simple skirting line at the floor.
+
+[PEGA AQUÍ LA COLETA DE ESTILO]
+
+Vertical 2:3 composition, wardrobe centered with clear empty space in the middle third for a figure to be placed later.</pre>
+  </div>
+
+  <div class="note">
+    <p>Lo importante es el <strong>hueco central libre</strong>. Si el armario sale lleno o el centro ocupado, no sirve de fondo. Descarta y repite.</p>
+  </div>
+</section>
+
+<section>
+  <span class="step">Pieza 2 · dos personajes, no ocho</span>
+  <h2>Los avatares</h2>
+  <p>Dos avatares cubren toda la web y <strong>son el dúo</strong> de la categoría «en pareja». Ocho se comen la temporada generando imágenes. Los atributos de abajo se copian <strong>palabra por palabra</strong> en cada prompt: son el mecanismo de consistencia, no una descripción bonita.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="nm">Vera</div>
+      <div class="rl">Avatar A</div>
+      <dl>
+        <dt>Pelo</dt><dd>negro, liso, largo hasta el pecho, flequillo recto</dd>
+        <dt>Piel</dt><dd>clara</dd>
+        <dt>Rasgos</dt><dd>ojos oscuros grandes, cara ovalada</dd>
+        <dt>Complexión</dt><dd>delgada, estatura media</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <div class="nm">Nuri</div>
+      <div class="rl">Avatar B</div>
+      <dl>
+        <dt>Pelo</dt><dd>castaño oscuro, rizado voluminoso, por los hombros</dd>
+        <dt>Piel</dt><dd>morena</dd>
+        <dt>Rasgos</dt><dd>pecas en las mejillas, cejas marcadas</dd>
+        <dt>Complexión</dt><dd>curvy, estatura media</dd>
+      </dl>
+    </div>
+  </div>
+
+  <h3>Hoja de personaje — se genera primero</h3>
+  <div class="block">
+    <div class="bar"><span class="t">Character sheet · Vera</span><button class="copy" data-t="sheet">Copiar</button></div>
+    <pre id="sheet">Character reference sheet. The same illustrated young woman shown four times in a row against a plain background: front view, three-quarter view, side view, back view. Standing in a neutral pose, arms relaxed at her sides, feet together.
+
+Fixed appearance, identical in all four views: <span class="v">straight black hair falling to the chest with a blunt straight fringe, fair skin, large dark eyes, oval face, slim build, average height</span>. She wears a plain fitted black long-sleeve top and plain black leggings, no accessories, no shoes detail.
+
+Stylised illustrated character, clearly a drawing and not a photograph.
+
+[PEGA AQUÍ LA COLETA DE ESTILO]</pre>
+  </div>
+  <p>Para <strong>Nuri</strong>, sustituye lo marcado en rosa por: <code>dark brown voluminous curly hair to the shoulders, brown skin, freckles across the cheeks, strong eyebrows, curvy build, average height</code>.</p>
+
+  <h3>Cada look, a partir de la hoja</h3>
+  <div class="block">
+    <div class="bar"><span class="t">Avatar vestido · un look</span><button class="copy" data-t="look">Copiar</button></div>
+    <pre id="look">Full-body illustration of a young woman standing facing forward, relaxed confident pose, one hand at her side.
+
+Fixed appearance, do not change: <span class="v">straight black hair falling to the chest with a blunt straight fringe, fair skin, large dark eyes, oval face, slim build, average height</span>.
+
+She is wearing: <span class="v">a black midi dress with long sleeves and a white pointed Peter Pan collar, black and white striped tights, chunky black lace-up boots</span>.
+
+The garments are generic archetypes, not any specific branded product.
+
+[PEGA AQUÍ LA COLETA DE ESTILO]
+
+Vertical 2:3, figure centered, plain background so it can be placed over a separate scene.</pre>
+  </div>
+
+  <div class="note warn">
+    <p><strong>Lo que va en el hueco de la ropa sale de la ficha de siete casillas</strong>, la que rellenas mirando el producto en Amazon: pieza · color · largo · manga · cuello · tejido · detalle. Nunca el nombre ni el modelo del producto.</p>
+    <p>Ese texto describe <strong>un tipo de prenda</strong>, no el artículo que enlazas. Es la línea que separa lo permitido de la afirmación engañosa del Requisito 2(b).</p>
+  </div>
+</section>
+
+<section>
+  <span class="step">Pieza 3 · por tandas</span>
+  <h2>La biblioteca de piezas</h2>
+  <p>Entre 40 y 60 objetos sueltos: sombreros, pelucas, medias, capas, botas, botes de maquillaje. <strong>Un sombrero de bruja dibujado una vez sirve para doce looks</strong>, así que la biblioteca crece despacio y se amortiza rápido. Genera por tandas de la misma categoría para que salgan a juego.</p>
+
+  <div class="block">
+    <div class="bar"><span class="t">Pieza suelta · plantilla</span><button class="copy" data-t="pieza">Copiar</button></div>
+    <pre id="pieza">A single <span class="v">[PRENDA: pointed witch hat / long curly wig / striped tights / velvet cape / chunky lace-up boot]</span> shown on its own, floating, seen from a straight three-quarter angle.
+
+No person wearing it, no hanger, no hands, no props, nothing else in frame. Simple recognisable silhouette, the kind used in a product diagram.
+
+[PEGA AQUÍ LA COLETA DE ESTILO]
+
+Square 1:1, object centered with wide even margin on all sides.</pre>
+  </div>
+
+  <p>Genera <strong>4 u 8 variantes de cada objeto y quédate con una</strong>. Sale más barato descartar siete que intentar arreglar una.</p>
+</section>
+
+<section>
+  <span class="step">Pieza 4 · la web</span>
+  <h2>Fondos y assets del sitio</h2>
+  <p>Cuatro imágenes cubren la web entera. Ninguna es de producto, así que ninguna depende de la API.</p>
+
+  <div class="block">
+    <div class="bar"><span class="t">Cabecera de home · 3:1 apaisado</span><button class="copy" data-t="hero">Copiar</button></div>
+    <pre id="hero">A wide empty room at night, seen from the front. Bare floorboards, one tall window with moonlight falling in a long rectangle across the floor, and a single wooden wardrobe standing against the far wall with its doors slightly ajar. Nobody in the room. Deep shadows, calm and still, more atmosphere than horror.
+
+[PEGA AQUÍ LA COLETA DE ESTILO]
+
+Wide 3:1 composition, the wardrobe placed off-centre to the right, with the left two thirds left empty for a headline to sit over it.</pre>
+  </div>
+
+  <div class="block">
+    <div class="bar"><span class="t">Cabecera de categoría · 3:1 · cinco variantes</span><button class="copy" data-t="cat">Copiar</button></div>
+    <pre id="cat">A single object floating against an empty background, lit from one side, casting a long soft shadow: <span class="v">[UNA DE: a pointed witch hat / two theatre masks / a make-up brush and a small pot / a long curly wig on a stand / a pair of striped tights folded]</span>.
+
+Nothing else in frame. No person, no hands, no props.
+
+[PEGA AQUÍ LA COLETA DE ESTILO]
+
+Wide 3:1 composition, object on the right third, generous empty space on the left for the category name.</pre>
+  </div>
+
+  <div class="block">
+    <div class="bar"><span class="t">Imagen para compartir (OG) · 1200×630</span><button class="copy" data-t="og">Copiar</button></div>
+    <pre id="og">An open wardrobe seen straight from the front, doors wide open, empty rail with three bare hangers. Centered, symmetrical, generous margin on all sides.
+
+[PEGA AQUÍ LA COLETA DE ESTILO]
+
+Composition 1200x630, the wardrobe occupying the middle half of the frame so the title can be typeset over the empty upper area.</pre>
+  </div>
+
+  <div class="note">
+    <p>El <strong>favicon y el símbolo ya están hechos</strong> y no se generan con IA: son SVG dibujados, están en el sistema de marca y en <code>ProductoImagen.tsx</code>. Una percha cuyo gancho es un interrogante.</p>
+  </div>
+</section>
+
+<section>
+  <span class="step">Pieza 5 · redes</span>
+  <h2>Las tres plantillas</h2>
+  <p>Se generan <strong>vacías, una sola vez</strong>. El texto va encima después, con las tipografías de la marca: si lo metes en el prompt, el modelo escribe letras deformes y hay que tirar la imagen.</p>
+
+  <div class="block">
+    <div class="bar"><span class="t">Pin de Pinterest · 2:3 · 1000×1500</span><button class="copy" data-t="pin">Copiar</button></div>
+    <pre id="pin">Vertical background for a poster. An open wardrobe interior seen from the front, filling the lower two thirds, with a clear empty area across the top third. Soft shadow gradient from the top. Nobody in frame.
+
+[PEGA AQUÍ LA COLETA DE ESTILO]
+
+Vertical 2:3. Leave the top third almost empty and the centre clear: a figure goes in the middle and a headline goes on top. NO TEXT of any kind in the image.</pre>
+  </div>
+
+  <div class="block">
+    <div class="bar"><span class="t">Carrusel de Instagram · 4:5 · 1080×1350</span><button class="copy" data-t="carr">Copiar</button></div>
+    <pre id="carr">Vertical background. A plain interior wall with a wooden floor line near the bottom, and a long soft shadow falling diagonally from the upper left. Nothing else: no furniture, no objects, no people.
+
+[PEGA AQUÍ LA COLETA DE ESTILO]
+
+Vertical 4:5, completely uncluttered — this is a backdrop, a figure and text are placed over it later. NO TEXT in the image.</pre>
+  </div>
+
+  <div class="block">
+    <div class="bar"><span class="t">Fondo de TikTok y Reels · 9:16 · 1080×1920</span><button class="copy" data-t="tt">Copiar</button></div>
+    <pre id="tt">Tall vertical background. Slow drifting fog low against a dark plain wall, with a faint pool of light in the lower third. Empty, atmospheric, no objects and no people.
+
+[PEGA AQUÍ LA COLETA DE ESTILO]
+
+Vertical 9:16. Keep the middle band clear for a figure and the lower third clear for captions. NO TEXT in the image.</pre>
+  </div>
+
+  <div class="note warn">
+    <p><strong>Nunca pidas texto dentro de la imagen.</strong> Los modelos escriben letras rotas y en español fallan más. El texto se pone encima con Bodoni Moda para el titular y Bricolage Grotesque para lo demás — así además es legible, editable y coherente entre las 40 piezas.</p>
+  </div>
+</section>
+
+<section>
+  <span class="step">Para lo que no esté en esta lista</span>
+  <h2>El prompt maestro</h2>
+  <p>Cualquier cosa nueva se escribe rellenando estos cinco huecos, en este orden. El orden importa: los modelos pesan más lo que va primero.</p>
+
+  <div class="block">
+    <div class="bar"><span class="t">Plantilla para cualquier imagen</span><button class="copy" data-t="maestro">Copiar</button></div>
+    <pre id="maestro">1 · QUÉ ES
+<span class="v">[Una frase. El sujeto y nada más. "An open wardrobe seen from the front."]</span>
+
+2 · CÓMO SE VE
+<span class="v">[Ángulo, luz y ambiente. "Lit from one side, long soft shadow, calm and still."]</span>
+
+3 · QUÉ NO PUEDE SALIR
+<span class="v">[Exclusiones explícitas. "No person, no hands, no props, nothing else in frame."]</span>
+   Esto es lo que más ahorra: sin ello el modelo rellena el encuadre con cosas.
+
+4 · LA COLETA DE ESTILO
+<span class="v">[Pegada literal, sin cambiar una palabra.]</span>
+
+5 · FORMATO Y HUECO
+<span class="v">[Proporción y dónde va el espacio vacío. "Vertical 2:3, centre kept clear
+ for a figure, no text in the image."]</span></pre>
+  </div>
+
+  <div class="note">
+    <p><strong>Los tres huecos que más se olvidan</strong> son el 3, el 4 y el «no text» del 5. Sáltatelos y tendrás una imagen bonita que no encaja con las otras treinta y nueve.</p>
+  </div>
+</section>
+
+<section>
+  <span class="step">Antes de generar nada</span>
+  <h2>Las cinco reglas</h2>
+  <ul>
+    <li><strong>Nunca metas una imagen ajena al generador.</strong> Ni la foto de Amazon para clavar la prenda, ni un fotograma, ni un pin. El resultado sería obra derivada de esa imagen: estilizar no lava el origen.</li>
+    <li><strong>Arquetipo, nunca el modelo concreto.</strong> «Vestido negro midi con cuello blanco» sí. «El vestido de la marca X» no.</li>
+    <li><strong>El avatar no puede ser un personaje de película.</strong> Gótica con trenzas, sí. Merlina con su cuello y sus trenzas exactas, no: es diseño del estudio.</li>
+    <li><strong>El avatar no dice nunca que ha probado nada.</strong> Ni «me encanta» ni «lo llevé». Sí: «esta es mi selección», «así lo montaría yo».</li>
+    <li><strong>Etiqueta de IA</strong> donde la plataforma la pida. Instagram y TikTok la detectan solas si el archivo lleva marca C2PA.</li>
+  </ul>
+
+  <div class="note warn">
+    <p><strong>Los modelos derivan, y la hoja de personaje ayuda pero no garantiza.</strong> Es la parte cara de todo esto y conviene saberlo antes de empezar, no en el look número treinta.</p>
+    <p>Lo que funciona: pegar los atributos fijos <em>literalmente iguales</em> en cada prompt, generar en tandas de 4-8, y curar sin pena. Lo que no funciona: pedirle «la misma chica de antes».</p>
+  </div>
+</section>
+
+<footer>
+  <span>Look de Miedo · kit de generación v1</span>
+  <span>Complemento del sistema de marca</span>
+</footer>
+
+</div>
+
+<script>
+document.querySelectorAll("button.copy").forEach(function(b){
+  b.addEventListener("click", function(){
+    var el = document.getElementById(b.dataset.t);
+    if(!el) return;
+    var txt = el.innerText;
+    var done = function(){
+      var old = b.textContent;
+      b.textContent = "Copiado";
+      b.classList.add("ok");
+      setTimeout(function(){ b.textContent = old; b.classList.remove("ok"); }, 1600);
+    };
+    try{
+      navigator.clipboard.writeText(txt).then(done, function(){ fallback(txt, done); });
+    }catch(e){ fallback(txt, done); }
+  });
+});
+function fallback(txt, done){
+  try{
+    var ta = document.createElement("textarea");
+    ta.value = txt; ta.setAttribute("readonly","");
+    ta.style.position = "fixed"; ta.style.top = "-1000px";
+    document.body.appendChild(ta); ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+    done();
+  }catch(e){}
+}
+</script>
