@@ -65,10 +65,14 @@ a:focus-visible, button:focus-visible {
 }
 
 /* El armario: un solo fondo para toda la web, servido una vez y cacheado.
- * Los modelos van encima en PNG recortado, así que pesan una fracción. */
+ * Los modelos van encima en PNG recortado, así que pesan una fracción.
+ *
+ * La imagen vive en public/armario.jpg. Si el fichero no está, la capa sigue
+ * funcionando: se ve el degradado lila sobre el negro y no se rompe nada. */
 .armario {
   position: relative;
   isolation: isolate;
+  --fondo-armario: url("/armario.jpg");
 }
 .armario::before {
   content: "";
