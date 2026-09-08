@@ -11,11 +11,11 @@ las webs del workspace, y vale más que cualquier comisión de octubre.
 
 | Documento | Qué es |
 |---|---|
-| [`BRIEFING.md`](BRIEFING.md) | La Fase 0 completa y cerrada. **Manda sobre todo lo demás** |
-| [`KICKOFF-CONSTRUCCION.md`](KICKOFF-CONSTRUCCION.md) | El mensaje para el chat de Construcción |
-| [`KICKOFF-MARKETING.md`](KICKOFF-MARKETING.md) | El de Marketing. Solo cuando Construcción confirme las rutas |
-| `marca.html` · `prompts.html` · `cuentas.html` | Sistema de marca, kit de generación y alta de cuentas |
-| `sala-de-operaciones.html` | La consola del proyecto, con la bitácora compartida |
+| [`docs/BRIEFING.md`](docs/BRIEFING.md) | La Fase 0 completa y cerrada. **Manda sobre todo lo demás** |
+| [`docs/KICKOFF-CONSTRUCCION.md`](docs/KICKOFF-CONSTRUCCION.md) | El mensaje para el chat de Construcción |
+| [`docs/KICKOFF-MARKETING.md`](docs/KICKOFF-MARKETING.md) | El de Marketing. Solo cuando Construcción confirme las rutas |
+| `docs/marca.html` · `docs/prompts.html` · `docs/cuentas.html` | Sistema de marca, kit de generación y alta de cuentas |
+| `docs/sala-de-operaciones.html` | La consola del proyecto, con la bitácora compartida |
 
 ## La restricción que da forma a todo
 
@@ -31,11 +31,14 @@ define que esto sea una guía editorial y no un escaparate.
 ## La web
 
 ```bash
-cd web
 npm install
 npm run dev        # http://localhost:3000
 npm run comprobar  # las tres puertas: guardarraíl + build + verificación
 ```
+
+La app de Next vive **en la raíz del repo** a propósito: así Vercel la detecta sin
+tener que configurar `Root Directory` en cada proyecto. Los documentos del
+proyecto están en `docs/`.
 
 ### Las tres puertas
 
@@ -59,12 +62,12 @@ casillas está en `prompts.html`.
 ## Estructura
 
 ```
-web/src/
-  afiliados/enlace.ts   ← el punto de paso único del tag. Va antes que nada
-  looks/looks.ts        ← datos + el guardarraíl del catálogo
-  compartido/           ← ProductoImagen y el símbolo
-  app/                  ← rutas
-  ../scripts/           ← verificar.mjs y probar-guardarrail.mjs
+src/afiliados/enlace.ts   ← el punto de paso único del tag. Va antes que nada
+src/looks/looks.ts        ← datos + el guardarraíl del catálogo
+src/compartido/           ← ProductoImagen y el símbolo
+src/app/                  ← rutas
+scripts/                  ← verificar.mjs y probar-guardarrail.mjs
+docs/                     ← BRIEFING, marca, prompts, cuentas, kickoffs
 ```
 
 El tag se aplica **dentro de la capa de datos**, nunca en las vistas: así no hay
