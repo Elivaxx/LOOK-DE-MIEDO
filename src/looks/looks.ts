@@ -28,21 +28,11 @@ export const COMPOSICION: Record<Composicion, { nombre: string; que: string }> =
   "piezas": { nombre: "Montado por piezas", que: "No existe como disfraz: se arma con ropa normal" },
 };
 
-/** El paso 1 del embudo: qué viene buscando. */
-export type Intencion = "sola" | "pareja" | "complemento";
-
-export const INTENCIONES: { slug: Intencion; nombre: string; que: string }[] = [
-  { slug: "sola", nombre: "Voy sola", que: "Un look entero para ti" },
-  { slug: "pareja", nombre: "Vamos dos", que: "Dos que se entienden al verlos juntos" },
-  { slug: "complemento", nombre: "Me falta algo", que: "Ya tienes el disfraz y necesitas rematarlo" },
-];
-
 export type Look = {
   slug: string;
   nombre: string;
   personaje: string;   // uso descriptivo del nombre, va en TEXTO
   categoria: Categoria;
-  intencion: Intencion;
   composicion: Composicion;
   entradilla: string;
   piezas: Pieza[];
@@ -126,9 +116,6 @@ function validarCatalogo(looks: Look[]): void {
     if (l.avatar && typeof l.avatar.generadoConIA !== "boolean") {
       errores.push(`${l.slug}: el avatar no declara si está generado con IA`);
     }
-    if (!INTENCIONES.some((i) => i.slug === l.intencion)) {
-      errores.push(`${l.slug}: intención inválida ("${l.intencion}") — sin ella no entra en el embudo`);
-    }
     if (!COMPOSICION[l.composicion]) {
       errores.push(`${l.slug}: composición inválida ("${l.composicion}") — entero, entero-mas o piezas`);
     }
@@ -182,7 +169,3 @@ export function getLooksDeCategoria(cat: Categoria): Look[] {
   return LOOKS.filter((l) => l.categoria === cat);
 }
 
-/** Paso 2 del embudo: lo que se despliega al elegir una intención. */
-export function getLooksDeIntencion(i: Intencion): Look[] {
-  return LOOKS.filter((l) => l.intencion === i);
-}

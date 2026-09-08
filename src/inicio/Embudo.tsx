@@ -3,76 +3,74 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
+  CATEGORIAS,
   COMPOSICION,
-  INTENCIONES,
-  type Intencion,
+  type Categoria,
   type Look,
 } from "@/looks/looks";
 
 /**
- * El embudo de tres pasos.
+ * Paso 1 y 2 del embudo.
  *
- *   1 · ¿Qué buscas?  →  sola · en pareja · un complemento
- *   2 · Se abre el panel al costado y eliges cuál
- *   3 · /look/[slug] — el modelo luciéndolo y el desglose con los enlaces
+ *   1 · Las categorías, arriba del todo. Son la primera pregunta.
+ *   2 · Al pulsar una, se despliega el panel con sus looks.
+ *   3 · /look/[slug] — el modelo luciéndolo, con el desglose y los enlaces.
  *
- * Los pasos 1 y 2 viven aquí porque son navegación y tienen que ser
- * instantáneos. El paso 3 es una ruta de verdad: cada look necesita su URL
- * propia o no lo indexa nadie.
+ * Hubo una versión con un paso previo de "sola / en pareja / un complemento",
+ * y sobraba: decía lo mismo que las categorías, que ya incluyen "En pareja".
+ * Una capa menos.
+ *
+ * El paso 3 se queda como ruta propia: cada look necesita su URL o no lo
+ * indexa nadie, y es la página que convierte cuando alguien busca un
+ * personaje concreto.
  */
 export function Embudo({ looks }: { looks: Look[] }) {
-  const [abierto, setAbierto] = useState<Intencion | null>(null);
+  const [abierta, setAbierta] = useState<Categoria | null>(null);
   const panel = useRef<HTMLDivElement>(null);
-  const seleccion = abierto ? looks.filter((l) => l.intencion === abierto) : [];
+  const seleccion = abierta ? looks.filter((l) => l.categoria === abierta) : [];
+  const cat = CATEGORIAS.find((c) => c.slug === abierta);
 
   useEffect(() => {
-    if (!abierto) return;
-    const cerrar = (e: KeyboardEvent) => e.key === "Escape" && setAbierto(null);
+    if (!abierta) return;
+    const cerrar = (e: KeyboardEvent) => e.key === "Escape" && setAbierta(null);
     document.addEventListener("keydown", cerrar);
     panel.current?.focus();
     return () => document.removeEventListener("keydown", cerrar);
-  }, [abierto]);
+  }, [abierta]);
 
   return (
-    <section className="relative">
-      <h2 className="display mb-1 text-3xl aparece">¿Qué buscas?</h2>
-      <p className="mb-6 text-texto aparece aparece-1">
-        Dime eso y te enseño solo lo que te sirve.
-      </p>
-
-      {/* ── Paso 1 ─────────────────────────────────────────────── */}
-      <div className="grid gap-3 sm:grid-cols-3">
-        {INTENCIONES.map((i, n) => {
-          const activo = abierto === i.slug;
+    <section>
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {CATEGORIAS.map((c, n) => {
+          const activa = abierta === c.slug;
           return (
             <button
-              key={i.slug}
+              key={c.slug}
               type="button"
-              onClick={() => setAbierto(activo ? null : i.slug)}
-              aria-expanded={activo}
-              className={`aparece group rounded border bg-panel p-6 text-left transition-all duration-300 ${
-                activo
+              onClick={() => setAbierta(activa ? null : c.slug)}
+              aria-expanded={activa}
+              className={`aparece group rounded border bg-panel/80 p-5 text-left backdrop-blur-sm transition-all duration-300 ${
+                activa
                   ? "border-lila bg-panel2"
-                  : "border-linea hover:border-lila hover:-translate-y-0.5"
+                  : "border-linea hover:-translate-y-0.5 hover:border-lila"
               }`}
-              style={{ animationDelay: `${120 + n * 90}ms` }}
+              style={{ animationDelay: `${120 + n * 70}ms` }}
             >
-              <span className="display block text-2xl leading-tight">{i.nombre}</span>
-              <span className="mt-1 block text-[13px] text-niebla">{i.que}</span>
+              <span className="display block text-xl leading-tight">{c.nombre}</span>
+              <span className="mt-1 block text-[13px] text-niebla">{c.que}</span>
               <span
-                className={`mt-4 block text-[11px] font-extrabold uppercase tracking-wider transition-colors ${
-                  activo ? "text-lila" : "text-niebla group-hover:text-lila"
+                className={`mt-3 block text-[11px] font-extrabold uppercase tracking-wider transition-colors ${
+                  activa ? "text-lila" : "text-niebla group-hover:text-lila"
                 }`}
               >
-                {activo ? "Cerrar ✕" : "Elegir →"}
+                {activa ? "Cerrar ✕" : "Ver →"}
               </span>
             </button>
           );
         })}
       </div>
 
-      {/* ── Paso 2 ─────────────────────────────────────────────── */}
-      {abierto ? (
+      {abierta ? (
         <div
           ref={panel}
           tabIndex={-1}
@@ -80,19 +78,16 @@ export function Embudo({ looks }: { looks: Look[] }) {
         >
           {seleccion.length === 0 ? (
             <>
-              <p className="text-texto">
-                Todavía no hay ningún look publicado aquí.
-              </p>
-              <p className="mt-2 max-w-[58ch] text-[13.5px] text-niebla">
-                Un look no entra sin marca, modelo y ASIN reales de cada pieza. Esos
-                datos los aporta una persona mirando la ficha: rellenar con nombres
-                genéricos es lo que dejó la web anterior con 34 fichas inservibles.
+              <p className="display text-2xl">Esto está al caer</p>
+              <p className="mt-2 max-w-[52ch] text-texto">
+                Todavía no hemos publicado ningún look de {cat?.nombre.toLowerCase()}.
+                Vuelve en unos días.
               </p>
               <Link
                 href="/que-ver"
-                className="mt-4 inline-block text-[13px] text-lila underline underline-offset-4"
+                className="mt-4 inline-block text-[13.5px] text-lila underline underline-offset-4"
               >
-                Mientras tanto, mira qué ver esa noche →
+                Mientras, mira qué ver esa noche →
               </Link>
             </>
           ) : (

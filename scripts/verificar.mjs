@@ -26,6 +26,7 @@ const SIN_DIVULGACION_OK = new Set(["_global-error"]);
 const RUTAS = [
   "/",
   "/que-ver",
+  "/guias",
   "/categoria/looks-de-peli",
   "/categoria/en-pareja",
   "/categoria/maquillaje",

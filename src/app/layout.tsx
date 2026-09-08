@@ -49,6 +49,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Link>
             ))}
             <Link
+              href="/guias"
+              className="text-[11.5px] font-bold uppercase tracking-wide text-niebla hover:text-lila"
+            >
+              Guías
+            </Link>
+            <Link
               href="/que-ver"
               className="text-[11.5px] font-bold uppercase tracking-wide text-niebla hover:text-lila"
             >
