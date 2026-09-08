@@ -33,14 +33,14 @@ export function Percha({ className = "" }: { className?: string }) {
       <g
         fill="none"
         stroke="currentColor"
-        strokeWidth="6"
+        strokeWidth="8"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M50 45 L50 29 C50 21 58.5 19.5 58.5 13.5 C58.5 8 51.5 5.2 45.8 8.6" />
-        <path d="M50 46 L21.5 67 L78.5 67 Z" />
+        <path d="M50 53 L50 39 C50 31 60.5 29.5 60.5 21 C60.5 13 50.5 9.5 43.5 15.5" />
+        <path d="M50 54 L17 84 L83 84 Z" />
       </g>
-      <circle cx="50" cy="59" r="4" fill="currentColor" />
+      <circle cx="50" cy="73" r="5.5" fill="currentColor" />
     </svg>
   );
 }
