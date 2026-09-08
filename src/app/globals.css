@@ -67,12 +67,14 @@ a:focus-visible, button:focus-visible {
 /* El armario: un solo fondo para toda la web, servido una vez y cacheado.
  * Los modelos van encima en PNG recortado, así que pesan una fracción.
  *
- * La imagen vive en public/armario.jpg. Si el fichero no está, la capa sigue
- * funcionando: se ve el degradado lila sobre el negro y no se rompe nada. */
+ * La imagen vive en Supabase Storage, no en el repo: así no infla el git, se
+ * sube desde el navegador sin pasar por un despliegue, y se sirve cacheada.
+ * Si el fichero no está todavía, la capa aguanta: se ve el degradado lila
+ * sobre el negro y no se rompe nada. */
 .armario {
   position: relative;
   isolation: isolate;
-  --fondo-armario: url("/armario.jpg");
+  --fondo-armario: url("https://uxfmryzfouogwbwbfazx.supabase.co/storage/v1/object/public/imagenes/armario.jpg");
 }
 .armario::before {
   content: "";
@@ -84,4 +86,24 @@ a:focus-visible, button:focus-visible {
     linear-gradient(180deg, transparent 55%, var(--noche) 95%),
     var(--fondo-armario, none) center/cover no-repeat,
     var(--noche);
+}
+
+/* El avatar entrando en el armario.
+ *
+ * Durante los pasos 1 y 2 el armario está vacío: es el escenario. Al elegir
+ * un look, alguien aparece dentro llevándolo puesto. Por eso el fondo no
+ * cambia nunca — lo que cambia es que se puebla.
+ *
+ * Sube un poco y se asienta, como si acabara de colocarse. Más lenta que las
+ * demás apariciones porque es el momento de la página.
+ */
+@keyframes entraAvatar {
+  from { opacity: 0; transform: translateY(24px) scale(.985); }
+  to   { opacity: 1; transform: none; }
+}
+.entra-avatar {
+  animation: entraAvatar .8s cubic-bezier(.16,.84,.28,1) 120ms both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .entra-avatar { animation: none; opacity: 1; transform: none; }
 }

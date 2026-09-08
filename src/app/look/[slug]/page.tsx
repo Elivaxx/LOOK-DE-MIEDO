@@ -48,17 +48,19 @@ export default async function LookPage(
           {look.entradilla}
         </p>
 
+        {/* El armario ha estado vacío durante los pasos 1 y 2. Aquí se puebla:
+            el avatar entra en PNG recortado, sobre el mismo fondo de siempre. */}
         {look.avatar ? (
-          <figure className="aparece mt-8" style={{ animationDelay: "260ms" }}>
+          <figure className="entra-avatar mt-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={look.avatar.src}
               alt={look.avatar.alt}
-              className="mx-auto max-h-[520px] w-auto"
+              className="mx-auto max-h-[560px] w-auto drop-shadow-[0_30px_60px_rgba(0,0,0,.55)]"
             />
             {look.avatar.generadoConIA ? (
-              <figcaption className="mt-2 text-center text-[11px] text-niebla">
-                Ilustración generada con IA. No es una persona real.
+              <figcaption className="mt-3 text-center text-[11px] text-niebla">
+                Imagen generada con IA. No es una persona real.
               </figcaption>
             ) : null}
           </figure>
