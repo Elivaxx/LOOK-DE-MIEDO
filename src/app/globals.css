@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/*
+  Identidad cerrada en la Fase 0. No se rediseña: en Navidad Ya se hicieron
+  ocho commits de identidad en cuatro horas y se tiraron todos al día siguiente.
+  Contrastes calculados sobre --noche: hueso 17,16:1 · lila 7,73:1 · rosa 5,73:1
+  · niebla 3,66:1 (solo texto grande).
+*/
+:root {
+  --noche: #0d0a11;
+  --panel: #171320;
+  --panel2: #1f1a2b;
+  --hueso: #f4efe6;
+  --texto: #cfc7d8;
+  --lila: #b98cff;
+  --rosa: #ff3d68;
+  --niebla: #6e6780;
+  --linea: #2c2438;
+}
+
+@theme inline {
+  --color-noche: var(--noche);
+  --color-panel: var(--panel);
+  --color-panel2: var(--panel2);
+  --color-hueso: var(--hueso);
+  --color-texto: var(--texto);
+  --color-lila: var(--lila);
+  --color-rosa: var(--rosa);
+  --color-niebla: var(--niebla);
+  --color-linea: var(--linea);
+}
+
+html { color-scheme: dark; }
+
+body {
+  background: var(--noche);
+  color: var(--hueso);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Bodoni es una didone: por debajo de 20px los trazos finos se rompen. */
+.display { font-family: var(--font-display), Didot, "Times New Roman", serif; font-weight: 400; }
+
+::selection { background: var(--lila); color: var(--noche); }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--lila);
+  outline-offset: 2px;
+}
