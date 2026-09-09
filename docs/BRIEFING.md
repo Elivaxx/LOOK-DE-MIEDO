@@ -15,7 +15,8 @@
 | ¿PA API? | ☐ Sí ☑ **No** |
 | Ventas adscritas | **0 de 3** |
 | Plazo de las 3 ventas | 180 días desde la solicitud `[sin verificar]` — dos fuentes de terceros lo dicen, ninguna oficial. **El único sitio donde está el dato real es Central de Afiliados** |
-| Mantener PA API una vez concedida | 3 ventas en los últimos 30 días, rodante `[sin verificar]` |
+| Acceder a la API | **10 ventas aptas en los últimos 30 días** `[verificado]` — leído en la propia página de Amazon el 08/09 |
+| ⚠️ PA API 5 | **DEPRECADA.** Devuelve `403 AccessDenied`. La sustituye la **Creators API**, REST `[verificado]` |
 
 **Consecuencia que define la web entera: sin PA API no hay fotos de producto, ni precios, ni
 valoraciones.** No es un detalle legal. Es guía editorial, no escaparate.
@@ -233,8 +234,10 @@ maestro. SVG en el board; funciona a 32 px de favicon.
 6. **Qué ver esa noche** — la pata de Prime Video Channels
 
 > **"En pareja" es la categoría que más rinde**: duplica el ticket (8-12 piezas en vez de 4-6) sin
-> duplicar el trabajo, en la misma sesión de 24 h y desde el mismo artículo. Y encaja con la
-> restricción de producción: **dos avatares = el dúo**.
+> duplicar el trabajo, en la misma sesión de 24 h y desde el mismo artículo.
+>
+> **El reparto son cuatro avatares, dos chicas y dos chicos** (decisión del usuario, 08/09). Cubre
+> los tres tipos de dúo —ellas, mixto y ellos— sin generar a nadie más.
 > *En grupo* queda anotado para 2027.
 
 ---
