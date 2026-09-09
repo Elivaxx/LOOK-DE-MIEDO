@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Embudo } from "@/inicio/Embudo";
+import { Selector } from "@/inicio/Selector";
 import { getLooks } from "@/looks/looks";
 import { getGuias, TIPOS } from "@/guias/guias";
 
@@ -27,7 +27,7 @@ export default function Home() {
           dos, el de tu amiga sale del mismo sitio.
         </p>
 
-        <Embudo looks={looks} />
+        <Selector looks={looks} />
       </section>
 
       <section>

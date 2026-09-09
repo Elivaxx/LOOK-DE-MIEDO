@@ -64,29 +64,45 @@ a:focus-visible, button:focus-visible {
   * { transition-duration: .01ms !important; }
 }
 
-/* El armario: un solo fondo para toda la web, servido una vez y cacheado.
- * Los modelos van encima en PNG recortado, así que pesan una fracción.
+/* EL ARMARIO — siempre de fondo, en toda la web.
  *
- * La imagen vive en Supabase Storage, no en el repo: así no infla el git, se
- * sube desde el navegador sin pasar por un despliegue, y se sirve cacheada.
- * Si el fichero no está todavía, la capa aguanta: se ve el degradado lila
- * sobre el negro y no se rompe nada. */
+ * Va fijo detrás del contenido: es lo que llama a quedarse. Se descarga una
+ * vez y se cachea; los modelos van encima en PNG recortado y pesan una
+ * fracción. Vive en Supabase Storage, no en el repo, así que cambiarlo no
+ * necesita despliegue.
+ *
+ * Encima lleva una capa que baja las luces del armario para que el texto se
+ * lea. Al elegir un look la capa se aclara —"se abre"— y el armario se ve de
+ * verdad, que es cuando aparece el modelo dentro.
+ */
 .armario {
   position: relative;
   isolation: isolate;
   --fondo-armario: url("https://uxfmryzfouogwbwbfazx.supabase.co/storage/v1/object/public/imagenes/armario.jpg");
+  --capa: .78;
 }
 .armario::before {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: -2;
+  background: var(--fondo-armario, none) center/cover no-repeat, var(--noche);
+}
+/* La capa. Degradado arriba y abajo para que se funda con la página en vez de
+   quedar como un recorte pegado. */
+.armario::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   z-index: -1;
   background:
-    radial-gradient(120% 80% at 50% 0%, rgba(185,140,255,.22), transparent 60%),
-    linear-gradient(180deg, transparent 55%, var(--noche) 95%),
-    var(--fondo-armario, none) center/cover no-repeat,
-    var(--noche);
+    linear-gradient(180deg, var(--noche) 0%, transparent 22%, transparent 70%, var(--noche) 100%),
+    radial-gradient(120% 90% at 50% 20%, rgba(185,140,255,.16), transparent 65%),
+    rgb(13 10 17 / var(--capa));
+  transition: background .6s ease;
 }
+/* Al elegir, la capa se va a la mitad y el armario se abre. */
+.armario:has(.capa-abierta) { --capa: .38; }
 
 /* El avatar entrando en el armario.
  *
